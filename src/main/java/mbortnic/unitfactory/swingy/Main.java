@@ -9,7 +9,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        try {
+//        try {
 //            WriteToFile.createFile();
 
             if (args.length != 1) {
@@ -18,14 +18,15 @@ public class Main {
             }
 
             if (args[0].equals("console")) {
+                System.out.println("Console View!");
 //                Console.show();
             } else {
                 GUI gui = new GUI();
-//                gui.show();
+                gui.displayGUI();
             }
-        } finally {
-//            WriteToFile.closeFile();
-        }
+//        } finally {
+////            WriteToFile.closeFile();
+//        }
 
     }
 
