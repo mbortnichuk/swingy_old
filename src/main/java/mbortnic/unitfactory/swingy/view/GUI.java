@@ -26,6 +26,7 @@ public class GUI extends JFrame {
 
     private JLabel createPlayerLabel = new JLabel("Create your hero");
     private JLabel enterPlayerNameLabel = new JLabel("Name your hero");
+    private JLabel selectExistingPlayer = new JLabel("Select existing hero");
 
     private JTextField playerNameField = new JTextField();
     private JTextArea textArea = new JTextArea();
@@ -36,6 +37,7 @@ public class GUI extends JFrame {
     private JButton welcomeButton = new JButton("Enter");
     private JButton createPlayerButton = new JButton("CREATE");
     private JButton selectPlayerButton = new JButton("SELECT");
+    private JButton enterButton = new JButton("ENTER");
 
     private String[] proverka = null;
     private int type;
@@ -49,13 +51,13 @@ public class GUI extends JFrame {
 
     public void displayFrame() {
         createPlayerLabel.setBackground(Color.blue);
-        createPlayerLabel.setBounds(110, 100, 100, 40);
+        createPlayerLabel.setBounds(200, 100, 200, 40);
         enterPlayerNameLabel.setBackground(Color.blue);
-        enterPlayerNameLabel.setBounds(110, 140, 100, 40);
+        enterPlayerNameLabel.setBounds(200, 140, 200, 40);
         playerNameField.setCaretColor(Color.cyan);
-        playerNameField.setBounds(100, 180, 100, 40);
+        playerNameField.setBounds(200, 180, 100, 40);
         welcomeButton.setBackground(Color.red);
-        welcomeButton.setBounds(100, 220, 100, 40);
+        welcomeButton.setBounds(200, 320, 200, 40);
         playerCreationFrame.add(enterPlayerNameLabel);
         playerCreationFrame.add(createPlayerLabel);
         playerCreationFrame.setBackground(Color.yellow);
@@ -82,7 +84,7 @@ public class GUI extends JFrame {
                     if (hero.isEmpty()) {
                         JOptionPane.showMessageDialog(null, "Enter your hero name!");
                     } else {
-//                        createHero();
+                        createHero();
                         playerCreationFrame.setVisible(false);
                         playerCreationFrame.dispose();
                     }
@@ -116,7 +118,7 @@ public class GUI extends JFrame {
 
         selectPlayerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-//                selectHero();
+                selectHero();
 //                displayFrame();
                 swingyFrame.setVisible(false);
                 swingyFrame.dispose();
@@ -124,13 +126,71 @@ public class GUI extends JFrame {
         });
     }
 
-//    public void createHero() {
-//
-//    }
+    public void createHero() {
+        ButtonGroup bGroup = new ButtonGroup();
+        humanButton.setBounds(200, 180, 100, 40);
+        undeadButton.setBounds(200, 210, 100, 40);
+        enterButton.setBounds(200, 260, 100, 40);
+        bGroup.add(humanButton);
+        bGroup.add(undeadButton);
 
-//    public void selectHero() {
-//
-//    }
+        createHeroFrame.add(humanButton);
+        createHeroFrame.add(undeadButton);
+        createHeroFrame.add(enterButton);
+        createHeroFrame.setSize(500, 500);
+        createHeroFrame.setLayout(null);
+        createHeroFrame.setLocationRelativeTo(null);
+        createHeroFrame.setVisible(true);
+        createHeroFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        enterButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (humanButton.isSelected()) {
+                    type = 2;
+                } else if (undeadButton.isSelected()) {
+                    type = 1;
+                }
+//                heroStatistics();
+                createHeroFrame.setVisible(false);
+                createHeroFrame.dispose();
+            }
+        });
+    }
+
+    public void selectHero() {
+        JButton enterButton = new JButton("CONTINUE");
+        JButton exitButton = new JButton("EXIT SWINGY");
+
+        selectExistingPlayer.setBounds(20, 20, 200, 40);
+//        listOfHeros.setBounds(20, 50, 250, 420);
+        enterButton.setBounds(300, 50, 100, 40);
+        exitButton.setBounds(300, 100, 100, 40);
+
+        enterButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                if (playerInfo == null) {
+                    JOptionPane.showMessageDialog(null, "Select your hero!");
+                } else {
+//                    play();
+                    selectHeroFrame.setVisible(false);
+                    selectHeroFrame.dispose();
+                }
+            }
+        });
+
+        exitButton.addActionListener(e -> selectHeroFrame.dispose());
+
+        selectHeroFrame.add(selectExistingPlayer);
+        selectHeroFrame.add(enterButton);
+        selectHeroFrame.add(exitButton);
+//        selectHeroFrame.add(lisOfHeros);
+        selectHeroFrame.setSize(500, 500);
+        selectHeroFrame.setVisible(true);
+        selectHeroFrame.setLayout(null);
+        selectHeroFrame.setLocationRelativeTo(null);
+        selectHeroFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
 
 //    public void playerStatistics() {
 //
