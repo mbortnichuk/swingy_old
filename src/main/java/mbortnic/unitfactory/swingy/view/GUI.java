@@ -178,7 +178,13 @@ public class GUI extends JFrame {
             }
         });
 
-        exitButton.addActionListener(e -> selectHeroFrame.dispose());
+//        exitButton.addActionListener(e -> selectHeroFrame.dispose());
+
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                selectHeroFrame.dispose();
+            }
+        });
 
         selectHeroFrame.add(selectExistingPlayer);
         selectHeroFrame.add(enterButton);
