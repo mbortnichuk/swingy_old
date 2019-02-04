@@ -150,7 +150,7 @@ public class GUI extends JFrame {
                 } else if (undeadButton.isSelected()) {
                     type = 1;
                 }
-//                heroStatistics();
+//                playerStatistics();
                 createHeroFrame.setVisible(false);
                 createHeroFrame.dispose();
             }

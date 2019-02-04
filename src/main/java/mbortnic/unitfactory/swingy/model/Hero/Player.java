@@ -34,7 +34,7 @@ public class Player {
     }
 
     public Artifact getArt() {
-        return this.art = art;
+        return art;
     }
 
     public void setArt(Artifact art) {
