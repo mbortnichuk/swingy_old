@@ -77,10 +77,10 @@ public class MapForGUI extends JFrame {
             this.lvl = 5;
         }
 
-        if (this.lvl > player.getHeroStatistics().getLvl()) {
-            player.getHeroStatistics().setLvl(this.lvl);
-            
-        }
+//        if (this.lvl > player.getHeroStatistics().getLvl()) {
+//            player.getHeroStatistics().setLvl(this.lvl);
+//
+//        }
 
     }
 
