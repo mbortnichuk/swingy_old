@@ -6,7 +6,7 @@ public class Orc extends Villian{
 
     public Orc(int lvl, int attack, int protection, int hitp, int exp, Artifact art) {
        super(lvl, attack, protection, hitp, exp, art);
-       int idType = 2;
+       int idType = 1;
        super.setIdType(idType);
     }
 
