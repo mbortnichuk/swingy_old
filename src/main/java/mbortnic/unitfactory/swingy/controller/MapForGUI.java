@@ -2,17 +2,21 @@ package mbortnic.unitfactory.swingy.controller;
 
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
+import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Random;
+
+import static mbortnic.unitfactory.swingy.reader.ReadFromFile.readLineFromFile;
 
 /**
  * Created by mbortnic on 1/27/19.
  */
 public class MapForGUI extends JFrame {
 
-//    private static ArrayList<Villian> villianArray = new ArrayList<>();
-//    private static ArrayList<Villian> tmpArray = new ArrayList<>();
+    private static ArrayList<Villian> villianArray = new ArrayList<>();
+    private static ArrayList<Villian> tmpArray = new ArrayList<>();
 
     private Player player;
     private Villian enemy = new Villian();
@@ -77,11 +81,117 @@ public class MapForGUI extends JFrame {
             this.lvl = 5;
         }
 
-//        if (this.lvl > player.getHeroStatistics().getLvl()) {
-//            player.getHeroStatistics().setLvl(this.lvl);
-//
-//        }
-
+        if (this.lvl > player.getHeroStatistics().getLvl()) {
+            player.getHeroStatistics().setLvl(this.lvl);
+//            readLineFromFile().refreshFile();
+            JOptionPane.showMessageDialog(null, "Congrats! Next Level!");
+            villianArray.removeAll(villianArray);
+            textArea.append(this.lvl + "\n");
+        } else if (this.lvl == player.getHeroStatistics().getLvl()) {
+            textArea.selectAll();
+            textArea.replaceSelection("");
+            tmpArray.addAll(villianArray);
+            villianArray.removeAll(villianArray);
+        }
     }
+
+    public void updatePlayerPos(int xPos, int yPos) {
+        this.xOld = this.xPos;
+        this.yOld = this.yPos;
+
+        this.xPos += xPos;
+        if (this.xPos < 0) {
+            this.xPos = (int)(size / 2);
+//            upgrdExp(1);
+            victory();
+            set = false;
+//            showGamefield();
+        } else if (this.xPos >= this.size) {
+//            upgrdExp(1);
+            victory();
+            set = false;
+//            showGamefield();
+        } else {
+            textArea.selectAll();
+            textArea.replaceSelection("");
+//            showGamefield();
+        }
+
+        this.yPos += yPos;
+        if (this.yPos < 0) {
+            this.yPos = (int)(size / 2);
+//            upgrdExp(1);
+            victory();
+            set = false;
+//            showGamefield();
+        } else if (this.yPos >= this.size) {
+//            upgrdExp();
+            victory();
+            set = false;
+//            showGamefield();
+        } else {
+            textArea.selectAll();
+            textArea.replaceSelection("");
+//            showGamefield();
+        }
+    }
+
+//    public JTextArea showGamefield() {
+//
+//    }
+
+    public static void regEnemy(Villian villian) {
+        if (villianArray.contains(villian)) {
+            return;
+        }
+        villianArray.add(villian);
+    }
+
+    public void createEnemies() {
+        for (int i = 0; i < this.villiansNbr; i++) {
+            Random rand = new Random();
+            int enemyPosX = rand.nextInt(size);
+            int enemyPosY = rand.nextInt(size);
+
+            while (enemyPosX == this.xPos || enemyPosY == this.yPos) {
+                enemyPosX = rand.nextInt(size);
+                enemyPosY = rand.nextInt(size);
+            }
+            enemy = Heros.newVillian(player);
+            enemy.setVillianPosition(enemyPosX, enemyPosY);
+            regEnemy(enemy);
+        }
+    }
+
+    public Villian getEnemyCollision() {
+        for (int i = 0; i < villianArray.size(); i++) {
+            if (villianArray.get(i).getyCoordinate() == this.yPos && villianArray.get(i).getyCoordinate() == this.yPos) {
+                return (villianArray.get(i));
+            }
+        }
+        return null;
+    }
+
+//    public void upgrdExp(int type) {
+//
+//    }
+
+//    public boolean enemyCollision(int heroX, int heroY, int enemyX, int enemyY) {
+//
+//    }
+
+    public boolean luckySituation() {
+        Random rand = new Random();
+        int luckySituation = rand.nextInt(2) + 1;
+        if (luckySituation == 1) {
+            return (true);
+        }
+        return (false);
+    }
+
+//    public int fatality() {
+//
+//    }
+
 
 }
