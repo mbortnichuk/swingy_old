@@ -3,6 +3,7 @@ package mbortnic.unitfactory.swingy.controller;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
+import mbortnic.unitfactory.swingy.view.GUI;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -15,8 +16,8 @@ import static mbortnic.unitfactory.swingy.reader.ReadFromFile.readLineFromFile;
  */
 public class MapForGUI extends JFrame {
 
-    private static ArrayList<Villian> villianArray = new ArrayList<>();
-    private static ArrayList<Villian> tmpArray = new ArrayList<>();
+    private static ArrayList<Villian> villianArray = new ArrayList();
+    private static ArrayList<Villian> tmpArray = new ArrayList();
 
     private Player player;
     private Villian enemy = new Villian();
@@ -172,13 +173,30 @@ public class MapForGUI extends JFrame {
         return null;
     }
 
-//    public void upgrdExp(int type) {
-//
-//    }
-
-//    public boolean enemyCollision(int heroX, int heroY, int enemyX, int enemyY) {
-//
-//    }
+    public void upgrdExp(int type) {
+        if (type == 1) {
+            int exp;
+            if (player.getHeroStatistics().getExp() < 2450) {
+                exp = 2450;
+                player.getHeroStatistics().setExp(exp);
+            } else if (player.getHeroStatistics().getExp() < 4800) {
+                exp = 4800;
+                player.getHeroStatistics().setExp(exp);
+            } else if (player.getHeroStatistics().getExp() < 8050) {
+                exp = 8050;
+                player.getHeroStatistics().setExp(exp);
+            } else if (player.getHeroStatistics().getExp() < 12200) {
+                exp = 12200;
+                player.getHeroStatistics().setExp(exp);
+            } else if (player.getHeroStatistics().getExp() < 12201) {
+                System.out.println("     GAME ENDED     \n\n");
+//                GUI.displayGUI();
+            }
+            victory();
+        } else if (type == 2) {
+            victory();
+        }
+    }
 
     public boolean luckySituation() {
         Random rand = new Random();
@@ -189,9 +207,55 @@ public class MapForGUI extends JFrame {
         return (false);
     }
 
-//    public int fatality() {
-//
-//    }
+    public int fatality() {
+        int fatality = 0;
+        int victory;
+        int shot = 0;
+        Random rand = new Random();
+        if (luckySituation() == true || player.getHeroStatistics().getPow() > enemy.getPow()) {
+            fatality = 1;
+        }
+        if (player.getHeroStatistics().getHitp() > 0) {
+            while (player.getHeroStatistics().getHitp() > 0 && enemy.getHitp() > 0) {
+                if (fatality == 0) {
+                    shot = rand.nextInt(20) + 1;
+                    if (enemy.getHitp() > 0) {
+                        player.getHeroStatistics().setHitp(-shot);
+//                    readLineFromFile().refreshFile(player);
 
+                        if (player.getHeroStatistics().getHitp() <= 0) {
+                            victory = 0;
+                            break ;
+                        }
+                        fatality = 1;
+                    }
+                } else if (fatality == 1) {
+                    shot = rand.nextInt(50) + 1;
+                    if (player.getHeroStatistics().getHitp() > 0) {
+                        enemy.setHitp(-shot);
+                        if (enemy.getHitp() <= 0) {
+                            victory = 1;
+                            break ;
+                        }
+                        fatality = 0;
+                    }
+                }
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "You are too weak to fight!");
+        }
+    }
+
+//    public boolean enemyCollision(int heroX, int heroY, int enemyX, int enemyY) {
+//        if ((heroX == enemyX) && (heroY == enemyY)) {
+//            enemy = getEnemyCollision();
+//            int buttonForDialog = JOptionPane.YES_NO_OPTION;
+//            int buttonForResult = JOptionPane.showConfirmDialog(this, "You faced your enemy!", "Fight or Run?", buttonForDialog);
+//
+//            if (buttonForResult == 0) {
+//
+//            }
+//        }
+//    }
 
 }

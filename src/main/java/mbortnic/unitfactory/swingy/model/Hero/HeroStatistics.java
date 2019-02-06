@@ -60,6 +60,10 @@ public class HeroStatistics {
         this.attack = attack;
     }
 
+    public void setExp(int exp) {
+        this.exp = exp;
+    }
+
     public void setHitp(int hitp) {
         this.hitp += hitp;
 
