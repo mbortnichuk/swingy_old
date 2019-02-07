@@ -4,8 +4,10 @@ import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.view.GUI;
+import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
+import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
@@ -209,7 +211,7 @@ public class MapForGUI extends JFrame {
 
     public int fatality() {
         int fatality = 0;
-        int victory;
+        int victory = 0;
         int shot = 0;
         Random rand = new Random();
         if (luckySituation() == true || player.getHeroStatistics().getPow() > enemy.getPow()) {
@@ -244,18 +246,44 @@ public class MapForGUI extends JFrame {
         } else {
             JOptionPane.showMessageDialog(null, "You are too weak to fight!");
         }
+        return victory;
     }
 
-//    public boolean enemyCollision(int heroX, int heroY, int enemyX, int enemyY) {
-//        if ((heroX == enemyX) && (heroY == enemyY)) {
-//            enemy = getEnemyCollision();
-//            int buttonForDialog = JOptionPane.YES_NO_OPTION;
-//            int buttonForResult = JOptionPane.showConfirmDialog(this, "You faced your enemy!", "Fight or Run?", buttonForDialog);
-//
-//            if (buttonForResult == 0) {
-//
-//            }
-//        }
-//    }
+    public boolean enemyCollision(int heroX, int heroY, int enemyX, int enemyY) {
+        if ((heroX == enemyX) && (heroY == enemyY)) {
+            enemy = getEnemyCollision();
+            int buttonForDialog = JOptionPane.YES_NO_OPTION;
+            int buttonForResult = JOptionPane.showConfirmDialog(this, "You faced your enemy!", "Fight or Run?", buttonForDialog);
+
+            if (buttonForResult == 0) {
+                if (fatality() == 0) {
+                    return true;
+                } else {
+                    JOptionPane.showMessageDialog(null, "You died!\n\n");
+                    jFrame.dispatchEvent(new WindowEvent(jFrame, WindowEvent.WINDOW_CLOSING));
+                }
+            } else {
+                Random rand = new Random();
+                int go = rand.nextInt(2) + 1;
+                if (go == 1) {
+                    textArea.selectAll();
+                    textArea.replaceSelection("");
+                    textArea.append("Duck\n\n");
+                    this.xPos = this.xOld;
+                    this.yPos = this.yOld;
+                } else {
+                    if (fatality() == 1) {
+                        villianArray.remove(enemy);
+                        upgrdExp(2);
+                        return (true);
+                    } else {
+                        JOptionPane.showMessageDialog(null, "You died!\n\n");
+                        jFrame.dispatchEvent(new WindowEvent(jFrame, WindowEvent.WINDOW_CLOSING));
+                    }
+                }
+            }
+        }
+        return (false);
+    }
 
 }
