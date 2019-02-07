@@ -4,14 +4,12 @@ import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.view.GUI;
-import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static mbortnic.unitfactory.swingy.reader.ReadFromFile.readLineFromFile;
 
 /**
  * Created by mbortnic on 1/27/19.
@@ -105,43 +103,101 @@ public class MapForGUI extends JFrame {
         this.xPos += xPos;
         if (this.xPos < 0) {
             this.xPos = (int)(size / 2);
-//            upgrdExp(1);
+            upgrdExp(1);
             victory();
             set = false;
-//            showGamefield();
+            showGamefield();
         } else if (this.xPos >= this.size) {
-//            upgrdExp(1);
+            upgrdExp(1);
             victory();
             set = false;
-//            showGamefield();
+            showGamefield();
         } else {
             textArea.selectAll();
             textArea.replaceSelection("");
-//            showGamefield();
+            showGamefield();
         }
 
         this.yPos += yPos;
         if (this.yPos < 0) {
             this.yPos = (int)(size / 2);
-//            upgrdExp(1);
+            upgrdExp(1);
             victory();
             set = false;
-//            showGamefield();
+            showGamefield();
         } else if (this.yPos >= this.size) {
-//            upgrdExp();
+            upgrdExp(1);
             victory();
             set = false;
-//            showGamefield();
+            showGamefield();
         } else {
             textArea.selectAll();
             textArea.replaceSelection("");
-//            showGamefield();
+            showGamefield();
         }
     }
 
-//    public JTextArea showGamefield() {
-//
-//    }
+    public JTextArea showGamefield() {
+        if (set == false) {
+            setMap();
+            setPlayerPosition();
+            setEnemy();
+            createEnemies();
+            set = true;
+        }
+
+        //initialize map array to zeros
+        for (int y = 0; y < size; y++) {
+            for (int x = 0; x < size; x++) {
+                map[y][x] = 0;
+            }
+        }
+
+        //Randomly initialize villians
+        for (Villian v : villianArray) {
+            map[enemy.getyCoordinate()][enemy.getxCoordinate()] = enemy.getIdType();
+        }
+
+        //initialize player
+        map[this.xPos][this.yPos] = 4;
+
+        //collision with viilian
+        for (Villian collision : villianArray) {
+            boolean b = enemyCollision(this.yPos, this.xPos, enemy.getyCoordinate(), enemy.getxCoordinate());
+
+            if (b == true) {
+                villianArray.remove(enemy);
+                set = false;
+                showGamefield();
+                break ;
+            }
+        }
+
+        textArea.append("Lvl: " + String.valueOf(player.getHeroStatistics().getLvl()) + " | " + "Attack: " + player.getHeroStatistics().getAttack() + " | " +
+                        "Protection: " + player.getHeroStatistics().getProtection() + " | " + "Hit points: " + String.valueOf(player.getHeroStatistics().getHitp()) + " | " +
+                        "Exp: " + String.valueOf(player.getHeroStatistics().getExp()) + "\n\n");
+
+        for (int y = 0; y < yCoordinate; y++) {
+            for (int x = 0; x < xCoordinate; x++) {
+                switch (map[y][x]) {
+                    case 0:
+                        textArea.append("|    |");
+                        break ;
+                    case 1:
+                        textArea.append("| s |");
+                        break ;
+                    case 2:
+                        textArea.append("| m |");
+                        break ;
+                    default:
+                        textArea.append("| P |");
+                        break ;
+                }
+            }
+            textArea.append("\n");
+        }
+        return textArea;
+    }
 
     public static void regEnemy(Villian villian) {
         if (villianArray.contains(villian)) {
@@ -192,7 +248,7 @@ public class MapForGUI extends JFrame {
                 player.getHeroStatistics().setExp(exp);
             } else if (player.getHeroStatistics().getExp() < 12201) {
                 System.out.println("     GAME ENDED     \n\n");
-//                GUI.displayGUI();
+//                GUI.endOfGame();
             }
             victory();
         } else if (type == 2) {
