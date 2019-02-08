@@ -63,4 +63,41 @@ public class SwingyView {
         return newPlayer;
     }
 
+    public static Player determinePlayer(String hero, long kind) {
+        if (kind == 1) {
+            return addPlayer("Orc", hero);
+        } else if (kind == 2) {
+            return addPlayer("DarkElf", hero);
+        } else {
+            return null;
+        }
+    }
+
+    public static Player DBPlayer(String player) {
+        String[] elements = player.split(" ");
+//        int i = 0;
+        String kind = elements[0];
+        String hero = elements[1];
+        int lvl = Integer.parseInt(elements[2]);
+        int attack = Integer.parseInt(elements[3]);
+        int protection = Integer.parseInt(elements[4]);
+        int hitp = Integer.parseInt(elements[5]);
+        int exp = Integer.parseInt(elements[6]);
+        String art = elements[7];
+
+        HeroStatistics heroStatistics = new HeroStatistics(kind, lvl, attack, protection, hitp, exp);
+
+        if (art.equals("HELM")) {
+            Helm h = new Helm("Helm");
+            DBPlayer = Heros.newHero(kind, hero, heroStatistics, h);
+        } else if (art.equals("ARMOR")) {
+            Armor ar = new Armor("Armor");
+            DBPlayer = Heros.newHero(kind, hero, heroStatistics, ar);
+        } else if (art.equals("WEAPON")) {
+            Weapon w = new Weapon("Weapon");
+            DBPlayer = Heros.newHero(kind, hero, heroStatistics, w);
+        }
+        return DBPlayer;
+    }
+
 }

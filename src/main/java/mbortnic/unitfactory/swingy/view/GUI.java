@@ -1,6 +1,13 @@
 package mbortnic.unitfactory.swingy.view;
 
+import mbortnic.unitfactory.swingy.controller.MapForGUI;
+import mbortnic.unitfactory.swingy.model.Hero.Player;
+import mbortnic.unitfactory.swingy.reader.ReadFromFile;
+import mbortnic.unitfactory.swingy.writer.WriteToFile;
+
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -13,12 +20,13 @@ public class GUI extends JFrame {
     public GUI () {
     }
 
-//    private final String[] heroList = ReadFromFile.ReadStr();
-//    private final JList listOfHeros = new JList<>(heroList);
+    private final String[] heroList = ReadFromFile.readLineFromFile();
+    private final JList listOfHeros = new JList(heroList);
+//    private final JList listOfHeros = new JList();
 
     private final JFrame createHeroFrame = new JFrame("Create your Hero");
     private final JFrame selectHeroFrame = new JFrame("Select your Hero");
-    private final JFrame heroStatistics = new JFrame("Hero Statistics");
+    private final JFrame heroStatisticsFrame = new JFrame("Hero Statistics");
     private final JFrame swingyFrame = new JFrame("SWINGY");
     private final JFrame playerCreationFrame = new JFrame("Player creation");
     private final JFrame gameFrame = new JFrame("Swingy Game");
@@ -42,11 +50,11 @@ public class GUI extends JFrame {
     private String[] proverka = null;
     private int type;
     private String hero;
-    private String present;
+    private String artif;
     private String playerInfo;
 
-//    private MapForGUI guiMap;
-//    private Player player;
+    private MapForGUI guiMap;
+    private Player player;
 
 
     public void displayFrame() {
@@ -150,7 +158,7 @@ public class GUI extends JFrame {
                 } else if (undeadButton.isSelected()) {
                     type = 1;
                 }
-//                playerStatistics();
+                playerStatistics();
                 createHeroFrame.setVisible(false);
                 createHeroFrame.dispose();
             }
@@ -161,10 +169,18 @@ public class GUI extends JFrame {
         JButton enterButton = new JButton("CONTINUE");
         JButton exitButton = new JButton("EXIT SWINGY");
 
-        selectExistingPlayer.setBounds(20, 20, 200, 40);
-//        listOfHeros.setBounds(20, 50, 250, 420);
-        enterButton.setBounds(300, 50, 100, 40);
+        selectExistingPlayer.setBounds(200, 20, 200, 40);
+        listOfHeros.setBounds(20, 50, 250, 420);
+        enterButton.setBounds(200, 150, 100, 40);
         exitButton.setBounds(300, 100, 100, 40);
+
+        listOfHeros.addListSelectionListener(new ListSelectionListener(){
+            public void valueChanged(ListSelectionEvent arg0) {
+                playerInfo = listOfHeros.getSelectedValue().toString();
+                player = SwingyView.DBPlayer(playerInfo);
+
+            }
+        });
 
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -189,7 +205,7 @@ public class GUI extends JFrame {
         selectHeroFrame.add(selectExistingPlayer);
         selectHeroFrame.add(enterButton);
         selectHeroFrame.add(exitButton);
-//        selectHeroFrame.add(lisOfHeros);
+        selectHeroFrame.add(listOfHeros);
         selectHeroFrame.setSize(500, 500);
         selectHeroFrame.setVisible(true);
         selectHeroFrame.setLayout(null);
@@ -198,9 +214,58 @@ public class GUI extends JFrame {
 
     }
 
-//    public void playerStatistics() {
-//
-//    }
+    public void playerStatistics() {
+        player = SwingyView.determinePlayer(hero, type);
+
+        JLabel label1;
+        JLabel label2;
+        JLabel label3;
+        JLabel label4;
+        JLabel label5;
+        JLabel label6;
+        JLabel label7;
+        JLabel label8;
+
+        JButton enterButton = new JButton("Continue");
+
+        label1 = new JLabel("Your statistics: ");
+        label1.setBounds(100, 100, 100, 30);
+
+        label2 = new JLabel("Hero: " + hero);
+        label2.setBounds(100, 110, 100, 30);
+
+        String playerType;
+        label3 = new JLabel("Hero: " + (playerType = player.getHeroStatistics().getPlayerType()));
+        label3.setBounds(100, 120, 100, 30);
+
+        enterButton.setBounds(100, 130, 100, 30);
+
+        heroStatisticsFrame.add(label1);
+        heroStatisticsFrame.add(label2);
+        heroStatisticsFrame.add(label3);
+        heroStatisticsFrame.add(enterButton);
+
+        heroStatisticsFrame.setSize(500, 500);
+        heroStatisticsFrame.setLocationRelativeTo(null);
+        heroStatisticsFrame.setLayout(null);
+        heroStatisticsFrame.setVisible(true);
+        heroStatisticsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        enterButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " ";
+//                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " " + player.getHeroStatistics().getLvl() + " " +
+//                            player.getHeroStatistics().getAttack() + " " + player.getHeroStatistics().getHitp() + " " + player.getHeroStatistics().getExp() + " " +
+//                            artif.toUpperCase();
+                WriteToFile.write(playerInfo);
+                WriteToFile.close();
+//                play();
+                heroStatisticsFrame.setVisible(false);
+                heroStatisticsFrame.dispose();
+            }
+        });
+
+    }
 
 //    public void play() {
 //
