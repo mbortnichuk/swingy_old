@@ -4,6 +4,7 @@ import mbortnic.unitfactory.swingy.controller.MapForGUI;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.writer.WriteToFile;
+import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -187,7 +188,7 @@ public class GUI extends JFrame {
                 if (playerInfo == null) {
                     JOptionPane.showMessageDialog(null, "Select your hero!");
                 } else {
-//                    play();
+                    play();
                     selectHeroFrame.setVisible(false);
                     selectHeroFrame.dispose();
                 }
@@ -278,7 +279,7 @@ public class GUI extends JFrame {
                             artif.toUpperCase();
                 WriteToFile.write(playerInfo);
                 WriteToFile.close();
-//                play();
+                play();
                 heroStatisticsFrame.setVisible(false);
                 heroStatisticsFrame.dispose();
             }
@@ -286,9 +287,55 @@ public class GUI extends JFrame {
 
     }
 
-//    public void play() {
-//
-//    }
+    public void play() {
+        JButton northButton = new JButton("North");
+        JButton southButton = new JButton("South");
+        JButton westButton = new JButton("West");
+        JButton eastButton = new JButton("East");
+
+        guiMap = new MapForGUI(player, gameFrame);
+        textArea = guiMap.showGamefield();
+
+        northButton.setBounds(20, 480, 100, 30);
+        southButton.setBounds(140, 480, 100, 30);
+        westButton.setBounds(280, 480, 100, 30);
+        eastButton.setBounds(400, 480, 100, 30);
+
+        northButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                guiMap.updatePlayerPos(0, -1);
+            }
+        });
+        southButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                guiMap.updatePlayerPos(0, 1);
+            }
+        });
+        westButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                guiMap.updatePlayerPos(1, 0);
+            }
+        });
+        eastButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                guiMap.updatePlayerPos(-1, 0);
+            }
+        });
+
+        textArea.setBounds(20, 100, 500, 500);
+        gameFrame.add(textArea);
+        gameFrame.add(northButton);
+        gameFrame.add(southButton);
+        gameFrame.add(westButton);
+        gameFrame.add(eastButton);
+
+        gameFrame.setSize(800, 800);
+        gameFrame.setVisible(true);
+        gameFrame.setLayout(null);
+        gameFrame.setLocationRelativeTo(null);
+        gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+    }
 
 //    public void endOfGame() {
 //
