@@ -238,6 +238,25 @@ public class GUI extends JFrame {
         label3 = new JLabel("Hero: " + (playerType = player.getHeroStatistics().getPlayerType()));
         label3.setBounds(100, 120, 100, 30);
 
+        int lvl;
+        label4 = new JLabel("Lvl: " + (lvl = player.getHeroStatistics().getLvl()));
+        label4.setBounds(100, 130, 100, 30);
+
+        int attack;
+        label5 = new JLabel("Attack: " + (attack = player.getHeroStatistics().getAttack()));
+        label5.setBounds(100, 140, 100, 30);
+
+        int protection;
+        label6 = new JLabel("Protection: " + (protection = player.getHeroStatistics().getProtection()));
+        label6.setBounds(100, 150, 100, 30);
+
+        int hitp;
+        label7 = new JLabel("Hit Points: " + (hitp = player.getHeroStatistics().getHitp()));
+        label7.setBounds(100, 160, 100, 30);
+
+        label8 = new JLabel("Artifact: " + (artif = player.getArt().getArtType()));
+        label8.setBounds(100, 170, 100, 30);
+
         enterButton.setBounds(100, 130, 100, 30);
 
         heroStatisticsFrame.add(label1);
@@ -253,10 +272,10 @@ public class GUI extends JFrame {
 
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " ";
-//                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " " + player.getHeroStatistics().getLvl() + " " +
-//                            player.getHeroStatistics().getAttack() + " " + player.getHeroStatistics().getHitp() + " " + player.getHeroStatistics().getExp() + " " +
-//                            artif.toUpperCase();
+//                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " ";
+                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " " + player.getHeroStatistics().getLvl() + " " +
+                            player.getHeroStatistics().getAttack() + " " + player.getHeroStatistics().getHitp() + " " + player.getHeroStatistics().getExp() + " " +
+                            artif.toUpperCase();
                 WriteToFile.write(playerInfo);
                 WriteToFile.close();
 //                play();
