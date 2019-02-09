@@ -1,10 +1,9 @@
-package mbortnic.unitfactory.swingy.view;
+package mbortnic.unitfactory.swingy.view.gui;
 
 import mbortnic.unitfactory.swingy.controller.MapForGUI;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.writer.WriteToFile;
-import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;

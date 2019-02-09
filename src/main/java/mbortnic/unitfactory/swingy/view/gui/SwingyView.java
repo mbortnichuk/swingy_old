@@ -1,4 +1,4 @@
-package mbortnic.unitfactory.swingy.view;
+package mbortnic.unitfactory.swingy.view.gui;
 
 import mbortnic.unitfactory.swingy.controller.Heros;
 import mbortnic.unitfactory.swingy.model.Artifact.Armor;

@@ -1,6 +1,6 @@
 package mbortnic.unitfactory.swingy;
 
-import mbortnic.unitfactory.swingy.view.GUI;
+import mbortnic.unitfactory.swingy.view.gui.GUI;
 import mbortnic.unitfactory.swingy.writer.WriteToFile;
 
 /**
@@ -32,5 +32,4 @@ public class Main {
     }
 
 }
-
 

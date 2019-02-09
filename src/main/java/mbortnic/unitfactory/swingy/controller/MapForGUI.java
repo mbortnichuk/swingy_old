@@ -2,8 +2,6 @@ package mbortnic.unitfactory.swingy.controller;
 
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
-import mbortnic.unitfactory.swingy.reader.ReadFromFile;
-import mbortnic.unitfactory.swingy.view.GUI;
 
 import javax.swing.*;
 import java.awt.event.WindowEvent;
