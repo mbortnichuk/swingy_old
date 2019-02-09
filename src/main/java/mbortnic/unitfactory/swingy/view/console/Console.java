@@ -16,7 +16,7 @@ public class Console {
         int createPlayer;
 
         try {
-
+            
         } catch (Exception exception) {
             exception.getMessage();
         }
