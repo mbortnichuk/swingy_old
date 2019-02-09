@@ -34,7 +34,48 @@ public class Main {
 }
 
 
-
+//    public static void run(Hero hero) { //
+//        ConsoleMap printMap = new ConsoleMap(hero);
+//
+//        printMap.printMap();
+//        HeroDisplay.printDirections();
+//        Console console = System.console();
+//        while (true) {
+//            String line = console.readLine();
+//
+//
+//            if (line.matches("\\s*[1-5]\\s*")) {
+//                int direction = Integer.parseInt(line);
+//
+//                if (direction == 1) {
+//                    printMap.updateHeroPosition(1, 0);
+//                    printMap.printMap();
+//                    HeroDisplay.printDirections();
+//                } else if (direction == 2) {
+//                    printMap.updateHeroPosition(0, 1);
+//                    printMap.printMap();
+//                    HeroDisplay.printDirections();
+//                } else if (direction == 3) {
+//                    printMap.updateHeroPosition(-1, 0);
+//                    printMap.printMap();
+//                    HeroDisplay.printDirections();
+//                }
+//                else if (direction == 4) {
+//                    printMap.updateHeroPosition(0, -1);
+//                    printMap.printMap();
+//                    HeroDisplay.printDirections();
+//                }
+//                else if(direction == 5)
+//                {
+//                    System.exit(0);
+//                }
+//            }
+//            else {
+//                System.out.println("invalid input");
+//
+//            }
+//        }
+//    }
 
 
 
