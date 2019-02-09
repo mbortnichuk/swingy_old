@@ -19,13 +19,13 @@ public class ShowStatistics {
             System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + eol + "Attack: " + player.getHeroStatistics().getAttack() + eol +
                     "Protection: " + player.getHeroStatistics().getProtection() + eol + "Exp: " + player.getHeroStatistics().getExp() + eol +
                     "Hit Points: " + player.getHeroStatistics().getHitp() + eol + eol);
-//            chooseStartExit();
+            chooseStartExit();
         } else if (ch == 2) {
             System.out.println("Your choice is DarkElf: " + eol);
             System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + eol + "Attack: " + player.getHeroStatistics().getAttack() + eol +
                     "Protection: " + player.getHeroStatistics().getProtection() + eol + "Exp: " + player.getHeroStatistics().getExp() + eol +
                     "Hit Points: " + player.getHeroStatistics().getHitp() + eol + eol);
-//            chooseStartExit();
+            chooseStartExit();
         }
         int check = 0;
         Scanner scanner = new Scanner(System.in);
