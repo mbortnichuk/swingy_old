@@ -6,6 +6,7 @@ import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -131,7 +132,41 @@ public class MapForConsole {
         }
     }
 
+    public static void regEnemy(Villian villian) {
+        if (villianArray.contains(villian)) {
+            return ;
+        }
+        villianArray.add(villian);
+    }
 
+    public static void deleteEnemy(Villian villian) {
+        if (villianArray.contains(villian)) {
+            villianArray.remove(villian);
+        }
+    }
 
+    public void createEnemies() {
+        for (int i = 0; i < this.villianNbr; i++) {
+            Random rand = new Random();
+            int enemyPosX = rand.nextInt(size);
+            int enemyPosY = rand.nextInt(size);
+            while (enemyPosY == this.yCoordinate || enemyPosX == this.xCoordinate) {
+                enemyPosX = rand.nextInt(size);
+                enemyPosY = rand.nextInt(size);
+            }
+            villian = Heros.newVillian(player);
+            villian.setVillianPosition(enemyPosX, enemyPosY);
+            regEnemy(villian);
+        }
+    }
+
+    public Villian getEnemyCollision() {
+        for (int i = 0; i < villianArray.size(); i++) {
+            if (villianArray.get(i).getyCoordinate() == this.yCoordinate && villianArray.get(i).getxCoordinate() == this.xCoordinate) {
+                return (villianArray.get(i));
+            }
+        }
+        return null;
+    }
 
 }
