@@ -34,48 +34,37 @@ public class Main {
 }
 
 
-//    public static void run(Hero hero) { //
-//        ConsoleMap printMap = new ConsoleMap(hero);
+
+//if (this.level > hero.getHeroStats().getLevel()) {
+//        hero.getHeroStats().setLevel(this.level);
+//        ReadFile.updateFile(hero);
 //
-//        printMap.printMap();
-//        HeroDisplay.printDirections();
-//        Console console = System.console();
-//        while (true) {
-//            String line = console.readLine();
+//        System.out.println("You have defeated the Villian\n\n" +
+//        "1. continue playing this game\n" +
+//        "2. Quit game\n");
 //
+//        Scanner scanner = new Scanner(System.in);
 //
-//            if (line.matches("\\s*[1-5]\\s*")) {
-//                int direction = Integer.parseInt(line);
+//        while (scanner.hasNextLine()) {
+//        String line = scanner.nextLine();
 //
-//                if (direction == 1) {
-//                    printMap.updateHeroPosition(1, 0);
-//                    printMap.printMap();
-//                    HeroDisplay.printDirections();
-//                } else if (direction == 2) {
-//                    printMap.updateHeroPosition(0, 1);
-//                    printMap.printMap();
-//                    HeroDisplay.printDirections();
-//                } else if (direction == 3) {
-//                    printMap.updateHeroPosition(-1, 0);
-//                    printMap.printMap();
-//                    HeroDisplay.printDirections();
-//                }
-//                else if (direction == 4) {
-//                    printMap.updateHeroPosition(0, -1);
-//                    printMap.printMap();
-//                    HeroDisplay.printDirections();
-//                }
-//                else if(direction == 5)
-//                {
-//                    System.exit(0);
-//                }
-//            }
-//            else {
-//                System.out.println("invalid input");
+//        if (line.matches("\\s*[1-2]\\s*")) {
+//        int option = Integer.parseInt(line);
 //
-//            }
+//        if (option == 1) {
+//        enemyArray.removeAll(enemyArray);
+//        GameController.run(hero);
+////                        System.out.println("Continue to play game.");
+//        } else if (option == 2) {
+//        System.out.println("*****Thanks for taking the time to play this game...Until next time*****\n\n\n");
+//        System.exit(0);
 //        }
-//    }
+//        } else
+//        System.out.println("Invalid input. Please select any of the given options");
+//        }
+//        } else if (this.level == hero.getHeroStats().getLevel()) {
+//        enemyArray.removeAll(enemyArray);
+//        }
 
 
 

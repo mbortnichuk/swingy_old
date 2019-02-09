@@ -2,6 +2,7 @@ package mbortnic.unitfactory.swingy.controller;
 
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
+import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 
 import javax.swing.*;
 import java.awt.event.WindowEvent;
@@ -82,7 +83,7 @@ public class MapForGUI extends JFrame {
 
         if (this.lvl > player.getHeroStatistics().getLvl()) {
             player.getHeroStatistics().setLvl(this.lvl);
-//            readLineFromFile().refreshFile();
+            ReadFromFile.refreshFile(player);
             JOptionPane.showMessageDialog(null, "Congrats! Next Level!");
             villianArray.removeAll(villianArray);
             textArea.append(this.lvl + "\n");
@@ -159,6 +160,7 @@ public class MapForGUI extends JFrame {
         //initialize player
         map[this.xPos][this.yPos] = 4;
 
+        // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //collision with viilian
         for (Villian collision : villianArray) {
             boolean b = enemyCollision(this.yPos, this.xPos, enemy.getyCoordinate(), enemy.getxCoordinate());
@@ -277,7 +279,7 @@ public class MapForGUI extends JFrame {
                     shot = rand.nextInt(20) + 1;
                     if (enemy.getHitp() > 0) {
                         player.getHeroStatistics().setHitp(-shot);
-//                    readLineFromFile().refreshFile(player);
+                        ReadFromFile.refreshFile(player);
 
                         if (player.getHeroStatistics().getHitp() <= 0) {
                             victory = 0;
