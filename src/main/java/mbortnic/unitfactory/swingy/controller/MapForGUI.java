@@ -163,7 +163,7 @@ public class MapForGUI extends JFrame {
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //collision with viilian
         for (Villian collision : villianArray) {
-            boolean b = enemyCollision(this.yPos, this.xPos, enemy.getyCoordinate(), enemy.getxCoordinate());
+            boolean b = enemyCollision(this.yPos, this.xPos, collision.getyCoordinate(), collision.getxCoordinate());
 
             if (b == true) {
                 villianArray.remove(enemy);

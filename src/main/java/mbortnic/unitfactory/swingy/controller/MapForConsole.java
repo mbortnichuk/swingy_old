@@ -1,5 +1,8 @@
 package mbortnic.unitfactory.swingy.controller;
 
+import mbortnic.unitfactory.swingy.model.Artifact.Armor;
+import mbortnic.unitfactory.swingy.model.Artifact.Helm;
+import mbortnic.unitfactory.swingy.model.Artifact.Weapon;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
@@ -128,11 +131,11 @@ public class MapForConsole {
                 System.out.println("     GAME ENDED     \n\n");
                 System.exit(0);
             }
-//            victory();
+            victory();
         } else if (type == 2) {
             player.getHeroStatistics().setExp(player.getHeroStatistics().getExp() + villian.getPow());
             ReadFromFile.refreshFile(player);
-//            victory();
+            victory();
         }
     }
 
@@ -195,7 +198,7 @@ public class MapForConsole {
 
         // initialize villians
         for (Villian enemy : villianArray) {
-            map[villian.getyCoordinate()][villian.getxCoordinate()] = villian.getIdType();
+            map[enemy.getyCoordinate()][enemy.getxCoordinate()] = enemy.getIdType();
         }
 
         //initialize hero
@@ -203,10 +206,10 @@ public class MapForConsole {
 
         // check collision with enemy
         for (Villian villian : villianArray) {
-//            boolean collision = enemyCollision(this.xCoordinate, this.yCoordinate, villian.getyCoordinate(), villian.getxCoordinate());
-//            if (collision == true) {
-//                break ;
-//            }
+            boolean collision = enemyCollision(this.xCoordinate, this.yCoordinate, villian.getyCoordinate(), villian.getxCoordinate());
+            if (collision == true) {
+                break ;
+            }
         }
 
         System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + " | " + "Attack: " + player.getHeroStatistics().getAttack() + " | " +
@@ -226,7 +229,7 @@ public class MapForConsole {
                         System.out.println("| s |");
                         break ;
                     default:
-                        System.out.println("| H |")
+                        System.out.println("| H |");
                         break ;
                 }
             }
@@ -293,10 +296,9 @@ public class MapForConsole {
                         }
                     } else if (ch == 2) {
                         Villian collided = getEnemyCollision();
-                        int victorious = 0;
-//                        int victorious = GameControll.fight(player, collided);
+                        int victorious = GameControll.fight(player, collided);
                         if (victorious == 1) {
-//                            victorious(collided);
+                            battle(collided);
                             deleteEnemy(collided);
                             return true;
                         } else {
@@ -317,7 +319,55 @@ public class MapForConsole {
     public void battle(Villian collided) {
         villianArray.remove(collided);
         upgrdExp(2);
+        if (GameControll.luck() == true) {
+            System.out.println("You've defeated your enemy and you can pick up his artifact: " + collided.getArt().getArtType() + "\n");
+            System.out.println("1. Pick it up.\n2. Continue playing.");
 
+            Scanner scanner = new Scanner(System.in);
+
+            while (scanner.hasNextLine()) {
+                String str = scanner.nextLine();
+                if (str.matches("\\s*[1-2]\\s*")) {
+                    int ch = Integer.parseInt(str);
+                    if (ch == 1) {
+                        String art = villian.getArt().getArtType();
+                        if (art.equals("Helm")) {
+                            Helm h = new Helm("Helm");
+                            player.setArt(h);
+                            player.getHeroStatistics().setHitp(75);
+                            ReadFromFile.refreshFile(player);
+                            GameControll.go(player);
+                            System.out.println("HELM");
+                        } else if (art.equals("Weapon")) {
+                            Weapon w = new Weapon("Weapon");
+                            player.setArt(w);
+                            player.getHeroStatistics().setAttack(65);
+                            ReadFromFile.refreshFile(player);
+                            GameControll.go(player);
+                            System.out.println("WEAPON");
+                        } else if (art.equals("Armor")) {
+                            Armor a = new Armor("Armor");
+                            player.setArt(a);
+                            player.getHeroStatistics().setProtection(55);
+                            ReadFromFile.refreshFile(player);
+                            GameControll.go(player);
+                            System.out.println("ARMOR");
+                        }
+                    } else if (ch == 2) {
+                        upgrdExp(2);
+                    }
+                }
+                System.out.println("Try one more time.");
+            }
+        } else {
+            upgrdExp(2);
+            System.out.println("You win battle! You gained 500 EXP.");
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException exception) {
+                System.exit(0);
+            }
+            GameControll.go(player);
         }
     }
 

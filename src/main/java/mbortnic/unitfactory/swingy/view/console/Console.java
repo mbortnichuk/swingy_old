@@ -1,5 +1,6 @@
 package mbortnic.unitfactory.swingy.view.console;
 
+import mbortnic.unitfactory.swingy.controller.GameControll;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.view.gui.SwingyView;
@@ -55,7 +56,7 @@ public class Console {
                         System.out.println("Try one more time.");
                     }
                     player = SwingyView.DBPlayer(ReadFromFile.getPlayer(option));
-//                    GameControll.go(player);
+                    GameControll.go(player);
                 }
             }
         } catch (Exception exception) {
