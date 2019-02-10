@@ -37,6 +37,10 @@ public class MapForConsole {
         this.player = player;
     }
 
+    public void endOfGame() {
+        System.out.println("\nYou loose!\n\n");
+        System.exit(0);
+    }
 
     public void setEnemies() {
         switch (this.villianNbr = player.getHeroStatistics().getLvl() * 8) {
@@ -168,5 +172,147 @@ public class MapForConsole {
         }
         return null;
     }
+
+    public void showGameField() {
+        if (set = false) {
+            setMap();
+            setPlayerPosition();
+            setEnemies();
+            if (tmpArray.isEmpty()) {
+                createEnemies();
+            } else {
+                villianArray.addAll(tmpArray);
+            }
+            set = true;
+        }
+
+        //initialize map array to zeros
+        for (int y = 0; y < size; y++) {
+            for (int x = 0; x < size; x++) {
+                map[y][x] = 0;
+            }
+        }
+
+        // initialize villians
+        for (Villian enemy : villianArray) {
+            map[villian.getyCoordinate()][villian.getxCoordinate()] = villian.getIdType();
+        }
+
+        //initialize hero
+        map[this.yCoordinate][this.xCoordinate] = 4;
+
+        // check collision with enemy
+        for (Villian villian : villianArray) {
+//            boolean collision = enemyCollision(this.xCoordinate, this.yCoordinate, villian.getyCoordinate(), villian.getxCoordinate());
+//            if (collision == true) {
+//                break ;
+//            }
+        }
+
+        System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + " | " + "Attack: " + player.getHeroStatistics().getAttack() + " | " +
+                            "Protection: "+ player.getHeroStatistics().getProtection() + " | " + "Hit Points: " + player.getHeroStatistics().getHitp() + " | " +
+                            "Exp: " + player.getHeroStatistics().getExp() + "\n\n");
+
+        for (int y = 0; y < ymap; y++) {
+            for (int x = 0; x < xmap; x++) {
+                switch (map[y][x]) {
+                    case 0:
+                        System.out.println("|   |");
+                        break ;
+                    case 1:
+                        System.out.println("| m |");
+                        break ;
+                    case 2:
+                        System.out.println("| s |");
+                        break ;
+                    default:
+                        System.out.println("| H |")
+                        break ;
+                }
+            }
+            System.out.println();
+        }
+
+    }
+
+    public void updatePlayerPos(int xpos, int ypos) {
+        int previousX = this.xCoordinate;
+        int previousY = this.yCoordinate;
+        this.xCoordinate += xpos;
+        if (this.xCoordinate < 0) {
+            this.xCoordinate = (int)(size / 2);
+            upgrdExp(1);
+            victory();
+            set = false;
+            showGameField();
+        } else if (this.xCoordinate >= this.size) {
+            this.xCoordinate = (int)(size / 2);
+            upgrdExp(1);
+            victory();
+            set = false;
+            showGameField();
+        } else {
+            showGameField();
+        }
+
+        this.yCoordinate += ypos;
+        if (this.yCoordinate < 0) {
+            this.yCoordinate = (int)(size / 2);
+            upgrdExp(1);
+            victory();
+            set = false;
+            showGameField();
+        } else if (this.yCoordinate >= this.size) {
+            this.yCoordinate = (int)(size / 2);
+            upgrdExp(1);
+            victory();
+            set = false;
+            showGameField();
+        } else {
+            showGameField();
+        }
+    }
+
+    public boolean enemyCollision(int heroY, int heroX, int villianY, int villianX) {
+        if ((heroX == villianX) && (heroY == villianY)) {
+            System.out.println("You faced a villian, what you gonna to do:\n");
+            System.out.println("1. Run.\n2. Fight.\n");
+            Scanner scanner = new Scanner(System.in);
+
+            while (scanner.hasNextLine()) {
+                String str = scanner.nextLine();
+                if (str.matches("\\s*[1-2]\\s*")) {
+                    int ch = Integer.parseInt(str);
+                    if (ch == 1) {
+                        Random rand = new Random();
+                        int go = rand.nextInt(2) + 1;
+                        if (go == 1) {
+                            System.out.println("You're a coward! You loose 5XP\n");
+                            System.out.println("Your XP: " + (player.getHeroStatistics().getExp() - 5));
+                            showGameField();
+                        }
+                    } else if (ch == 2) {
+                        Villian collided = getEnemyCollision();
+                        int victorious = GameControll.fight(player, collided);
+                        if (victorious == 1) {
+//                            victorious(collided);
+                            deleteEnemy(collided);
+                            return true;
+                        } else {
+                            endOfGame();
+                            break ;
+                        }
+                    } else {
+                        System.out.println("Choose 1 or 2!");
+                    }
+                } else {
+                    System.out.println("Choose 1 or 2!");
+                }
+            }
+        }
+        return false;
+    }
+
+
 
 }
