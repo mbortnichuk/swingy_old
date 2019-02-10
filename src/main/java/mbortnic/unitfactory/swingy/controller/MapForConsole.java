@@ -275,7 +275,7 @@ public class MapForConsole {
 
     public boolean enemyCollision(int heroY, int heroX, int villianY, int villianX) {
         if ((heroX == villianX) && (heroY == villianY)) {
-            System.out.println("You faced a villian, what you gonna to do:\n");
+            System.out.println("You faced a villian, what you gonna to do: \n");
             System.out.println("1. Run.\n2. Fight.\n");
             Scanner scanner = new Scanner(System.in);
 
@@ -293,7 +293,8 @@ public class MapForConsole {
                         }
                     } else if (ch == 2) {
                         Villian collided = getEnemyCollision();
-                        int victorious = GameControll.fight(player, collided);
+                        int victorious = 0;
+//                        int victorious = GameControll.fight(player, collided);
                         if (victorious == 1) {
 //                            victorious(collided);
                             deleteEnemy(collided);
@@ -313,6 +314,11 @@ public class MapForConsole {
         return false;
     }
 
+    public void battle(Villian collided) {
+        villianArray.remove(collided);
+        upgrdExp(2);
 
+        }
+    }
 
 }
