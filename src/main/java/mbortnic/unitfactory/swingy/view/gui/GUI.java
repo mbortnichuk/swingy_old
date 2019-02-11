@@ -22,7 +22,6 @@ public class GUI extends JFrame {
 
     private final String[] heroList = ReadFromFile.readLineFromFile();
     private final JList listOfHeros = new JList(heroList);
-//    private final JList listOfHeros = new JList();
 
     private final JFrame createHeroFrame = new JFrame("Create your Hero");
     private final JFrame selectHeroFrame = new JFrame("Select your Hero");
@@ -58,13 +57,13 @@ public class GUI extends JFrame {
 
 
     public void displayFrame() {
-        createPlayerLabel.setBackground(Color.blue);
+//        createPlayerLabel.setBackground(Color.blue);
         createPlayerLabel.setBounds(200, 100, 200, 40);
-        enterPlayerNameLabel.setBackground(Color.blue);
+//        enterPlayerNameLabel.setBackground(Color.blue);
         enterPlayerNameLabel.setBounds(200, 140, 200, 40);
-        playerNameField.setCaretColor(Color.cyan);
+//        playerNameField.setCaretColor(Color.cyan);
         playerNameField.setBounds(200, 180, 100, 40);
-        welcomeButton.setBackground(Color.red);
+//        welcomeButton.setBackground(Color.red);
         welcomeButton.setBounds(200, 320, 200, 40);
         playerCreationFrame.add(enterPlayerNameLabel);
         playerCreationFrame.add(createPlayerLabel);
@@ -106,15 +105,15 @@ public class GUI extends JFrame {
 
     public void displayGUI() {
         createPlayerButton.setBounds(200, 140, 100, 40);
-        createPlayerButton.setBackground(Color.yellow);
+//        createPlayerButton.setBackground(Color.yellow);
         selectPlayerButton.setBounds(110, 180, 100, 40);
-        selectPlayerButton.setBackground(Color.blue);
+//        selectPlayerButton.setBackground(Color.blue);
         swingyFrame.add(createPlayerButton);
         swingyFrame.add(selectPlayerButton);
         swingyFrame.setSize(500, 500);
-        swingyFrame.setVisible(true);
-        swingyFrame.setLayout(null);
         swingyFrame.setLocationRelativeTo(null);
+        swingyFrame.setLayout(null);
+        swingyFrame.setVisible(true);
         swingyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         createPlayerButton.addActionListener(new ActionListener() {
@@ -154,9 +153,9 @@ public class GUI extends JFrame {
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 if (humanButton.isSelected()) {
-                    type = 2;
-                } else if (undeadButton.isSelected()) {
                     type = 1;
+                } else if (undeadButton.isSelected()) {
+                    type = 2;
                 }
                 playerStatistics();
                 createHeroFrame.setVisible(false);

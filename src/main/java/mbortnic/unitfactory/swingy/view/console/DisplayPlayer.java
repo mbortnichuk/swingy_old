@@ -51,7 +51,7 @@ public class DisplayPlayer extends ShowStatistics{
 
     public static int printHeroList() {
         System.out.println("Your race is: \n");
-        System.out.println("1. Orc.\n2. DarkElf.\n");
+        System.out.println("1. Human.\n2. Undead.\n");
         int check = 0;
         Scanner scanner = new Scanner(System.in);
 

@@ -98,7 +98,7 @@ public class MapForConsole {
                     if (ch == 1) {
                         villianArray.removeAll(villianArray);
                         GameControll.go(player);
-                        System.out.println("Continua playing.");
+                        System.out.println("Continue playing.");
                     } else if (ch == 2) {
                         System.out.println("Thanks for playing SWINGY!\n\n");
                         System.exit(0);

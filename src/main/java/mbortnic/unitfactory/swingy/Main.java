@@ -1,5 +1,6 @@
 package mbortnic.unitfactory.swingy;
 
+import mbortnic.unitfactory.swingy.view.console.Console;
 import mbortnic.unitfactory.swingy.view.gui.GUI;
 import mbortnic.unitfactory.swingy.writer.WriteToFile;
 
@@ -19,8 +20,8 @@ public class Main {
             }
 
             if (args[0].equals("console")) {
-                System.out.println("Console View!");
-//                Console.show();
+//                System.out.println("Console View!");
+                Console.start();
             } else {
                 GUI gui = new GUI();
                 gui.displayGUI();

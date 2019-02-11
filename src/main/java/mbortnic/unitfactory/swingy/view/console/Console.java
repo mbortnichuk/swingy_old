@@ -29,9 +29,9 @@ public class Console {
                 start = ShowStatistics.showInfo(type, hero, player);
 
                 if (start == 1) {
-//                    GameControll.go(player);
+                    GameControll.go(player);
                 } else {
-                    System.out.println("Thanks for visiting my game!\n");
+                    System.out.println("\nThanks for visiting my game!\n");
                     System.exit(0);
                 }
             } else if (createPlayer == 2) {

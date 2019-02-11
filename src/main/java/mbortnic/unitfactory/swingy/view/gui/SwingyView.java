@@ -65,9 +65,9 @@ public class SwingyView {
 
     public static Player determinePlayer(String hero, long kind) {
         if (kind == 1) {
-            return addPlayer("Orc", hero);
+            return addPlayer("Human", hero);
         } else if (kind == 2) {
-            return addPlayer("DarkElf", hero);
+            return addPlayer("Undead", hero);
         } else {
             return null;
         }
