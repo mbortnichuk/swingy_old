@@ -31,7 +31,7 @@ public class GUI extends JFrame {
     private final JFrame gameFrame = new JFrame("Swingy Game");
     private static JFrame gameOverFrame = new JFrame("Game Over");
 
-    private JLabel createPlayerLabel = new JLabel("Create your hero");
+    private JLabel createPlayerLabel = new JLabel("CREATE YOUR HERO");
     private JLabel enterPlayerNameLabel = new JLabel("Name your hero");
     private JLabel selectExistingPlayer = new JLabel("Select existing hero");
 
@@ -58,22 +58,22 @@ public class GUI extends JFrame {
 
     public void displayFrame() {
 //        createPlayerLabel.setBackground(Color.blue);
-        createPlayerLabel.setBounds(200, 100, 200, 40);
+        createPlayerLabel.setBounds(190, 100, 200, 40);
 //        enterPlayerNameLabel.setBackground(Color.blue);
-        enterPlayerNameLabel.setBounds(200, 140, 200, 40);
+        enterPlayerNameLabel.setBounds(200, 170, 200, 30);
 //        playerNameField.setCaretColor(Color.cyan);
-        playerNameField.setBounds(200, 180, 100, 40);
+        playerNameField.setBounds(130, 200, 250, 35);
 //        welcomeButton.setBackground(Color.red);
-        welcomeButton.setBounds(200, 320, 200, 40);
+        welcomeButton.setBounds(155, 250, 200, 30);
         playerCreationFrame.add(enterPlayerNameLabel);
         playerCreationFrame.add(createPlayerLabel);
         playerCreationFrame.setBackground(Color.yellow);
         playerCreationFrame.add(playerNameField);
         playerCreationFrame.add(welcomeButton);
         playerCreationFrame.setSize(500, 500);
-        playerCreationFrame.setVisible(true);
-        playerCreationFrame.setLayout(null);
         playerCreationFrame.setLocationRelativeTo(null);
+        playerCreationFrame.setLayout(null);
+        playerCreationFrame.setVisible(true);
         playerCreationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         welcomeButton.addActionListener(new ActionListener() {
@@ -104,9 +104,9 @@ public class GUI extends JFrame {
     }
 
     public void displayGUI() {
-        createPlayerButton.setBounds(200, 140, 100, 40);
+        createPlayerButton.setBounds(180, 170, 120, 40);
 //        createPlayerButton.setBackground(Color.yellow);
-        selectPlayerButton.setBounds(110, 180, 100, 40);
+        selectPlayerButton.setBounds(180, 230, 120, 40);
 //        selectPlayerButton.setBackground(Color.blue);
         swingyFrame.add(createPlayerButton);
         swingyFrame.add(selectPlayerButton);
@@ -145,8 +145,8 @@ public class GUI extends JFrame {
         createHeroFrame.add(undeadButton);
         createHeroFrame.add(enterButton);
         createHeroFrame.setSize(500, 500);
-        createHeroFrame.setLayout(null);
         createHeroFrame.setLocationRelativeTo(null);
+        createHeroFrame.setLayout(null);
         createHeroFrame.setVisible(true);
         createHeroFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -168,10 +168,10 @@ public class GUI extends JFrame {
         JButton enterButton = new JButton("CONTINUE");
         JButton exitButton = new JButton("EXIT SWINGY");
 
-        selectExistingPlayer.setBounds(200, 20, 200, 40);
-        listOfHeros.setBounds(20, 50, 250, 420);
-        enterButton.setBounds(200, 150, 100, 40);
-        exitButton.setBounds(300, 100, 100, 40);
+        selectExistingPlayer.setBounds(200, 20, 200, 30);
+        listOfHeros.setBounds(20, 70, 320, 360);
+        enterButton.setBounds(365, 150, 100, 40);
+        exitButton.setBounds(365, 100, 100, 40);
 
         listOfHeros.addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent arg0) {
@@ -206,9 +206,9 @@ public class GUI extends JFrame {
         selectHeroFrame.add(exitButton);
         selectHeroFrame.add(listOfHeros);
         selectHeroFrame.setSize(500, 500);
-        selectHeroFrame.setVisible(true);
-        selectHeroFrame.setLayout(null);
         selectHeroFrame.setLocationRelativeTo(null);
+        selectHeroFrame.setLayout(null);
+        selectHeroFrame.setVisible(true);
         selectHeroFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
@@ -227,40 +227,45 @@ public class GUI extends JFrame {
 
         JButton enterButton = new JButton("Continue");
 
-        label1 = new JLabel("Your statistics: ");
-        label1.setBounds(100, 100, 100, 30);
+        label1 = new JLabel("YOUR STATISTICS ");
+        label1.setBounds(180, 100, 100, 30);
 
         label2 = new JLabel("Hero: " + hero);
-        label2.setBounds(100, 110, 100, 30);
+        label2.setBounds(180, 130, 100, 30);
 
         String playerType;
         label3 = new JLabel("Hero: " + (playerType = player.getHeroStatistics().getPlayerType()));
-        label3.setBounds(100, 120, 100, 30);
+        label3.setBounds(180, 150, 100, 30);
 
         int lvl;
         label4 = new JLabel("Lvl: " + (lvl = player.getHeroStatistics().getLvl()));
-        label4.setBounds(100, 130, 100, 30);
+        label4.setBounds(180, 170, 100, 30);
 
         int attack;
         label5 = new JLabel("Attack: " + (attack = player.getHeroStatistics().getAttack()));
-        label5.setBounds(100, 140, 100, 30);
+        label5.setBounds(180, 190, 100, 30);
 
         int protection;
         label6 = new JLabel("Protection: " + (protection = player.getHeroStatistics().getProtection()));
-        label6.setBounds(100, 150, 100, 30);
+        label6.setBounds(180, 210, 100, 30);
 
         int hitp;
         label7 = new JLabel("Hit Points: " + (hitp = player.getHeroStatistics().getHitp()));
-        label7.setBounds(100, 160, 100, 30);
+        label7.setBounds(180, 230, 100, 30);
 
         label8 = new JLabel("Artifact: " + (artif = player.getArt().getArtType()));
-        label8.setBounds(100, 170, 100, 30);
+        label8.setBounds(180, 250, 100, 30);
 
-        enterButton.setBounds(100, 130, 100, 30);
+        enterButton.setBounds(180, 300, 100, 40);
 
         heroStatisticsFrame.add(label1);
         heroStatisticsFrame.add(label2);
         heroStatisticsFrame.add(label3);
+        heroStatisticsFrame.add(label4);
+        heroStatisticsFrame.add(label5);
+        heroStatisticsFrame.add(label6);
+        heroStatisticsFrame.add(label7);
+        heroStatisticsFrame.add(label8);
         heroStatisticsFrame.add(enterButton);
 
         heroStatisticsFrame.setSize(500, 500);
@@ -328,9 +333,9 @@ public class GUI extends JFrame {
         gameFrame.add(eastButton);
 
         gameFrame.setSize(800, 800);
-        gameFrame.setVisible(true);
-        gameFrame.setLayout(null);
         gameFrame.setLocationRelativeTo(null);
+        gameFrame.setLayout(null);
+        gameFrame.setVisible(true);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }
