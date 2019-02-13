@@ -45,6 +45,7 @@ public class GUI extends JFrame {
     private JButton createPlayerButton = new JButton("CREATE");
     private JButton selectPlayerButton = new JButton("SELECT");
     private JButton enterButton = new JButton("ENTER");
+    private JButton backButton = new JButton("Back");
 
     private String[] proverka = null;
     private int type;
@@ -65,8 +66,10 @@ public class GUI extends JFrame {
         playerNameField.setBounds(130, 200, 250, 35);
 //        welcomeButton.setBackground(Color.red);
         welcomeButton.setBounds(155, 250, 200, 30);
+        backButton.setBounds(200, 340, 100, 40);
         playerCreationFrame.add(enterPlayerNameLabel);
         playerCreationFrame.add(createPlayerLabel);
+        playerCreationFrame.add(backButton);
         playerCreationFrame.setBackground(Color.yellow);
         playerCreationFrame.add(playerNameField);
         playerCreationFrame.add(welcomeButton);
@@ -75,6 +78,12 @@ public class GUI extends JFrame {
         playerCreationFrame.setLayout(null);
         playerCreationFrame.setVisible(true);
         playerCreationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        backButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayGUI();
+            }
+        });
 
         welcomeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -108,6 +117,7 @@ public class GUI extends JFrame {
 //        createPlayerButton.setBackground(Color.yellow);
         selectPlayerButton.setBounds(180, 230, 120, 40);
 //        selectPlayerButton.setBackground(Color.blue);
+
         swingyFrame.add(createPlayerButton);
         swingyFrame.add(selectPlayerButton);
         swingyFrame.setSize(500, 500);
@@ -131,19 +141,28 @@ public class GUI extends JFrame {
                 swingyFrame.dispose();
             }
         });
+
+
     }
 
     public void createHero() {
         ButtonGroup bGroup = new ButtonGroup();
+        JButton bButton = new JButton("Back");
         humanButton.setBounds(200, 180, 100, 40);
         undeadButton.setBounds(200, 210, 100, 40);
         enterButton.setBounds(200, 260, 100, 40);
+        bButton.setBounds(200, 340, 100, 40);
+
+        humanButton.setSelected(true);
+//        createHeroFrame.getRootPane().setDefaultButton(humanButton);
+
         bGroup.add(humanButton);
         bGroup.add(undeadButton);
 
         createHeroFrame.add(humanButton);
         createHeroFrame.add(undeadButton);
         createHeroFrame.add(enterButton);
+        createHeroFrame.add(bButton);
         createHeroFrame.setSize(500, 500);
         createHeroFrame.setLocationRelativeTo(null);
         createHeroFrame.setLayout(null);
@@ -162,16 +181,25 @@ public class GUI extends JFrame {
                 createHeroFrame.dispose();
             }
         });
+
+        bButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayFrame();
+            }
+        });
     }
 
     public void selectHero() {
         JButton enterButton = new JButton("CONTINUE");
         JButton exitButton = new JButton("EXIT SWINGY");
 
+        JButton bButton = new JButton("Back");
+
         selectExistingPlayer.setBounds(200, 20, 200, 30);
         listOfHeros.setBounds(20, 70, 320, 360);
-        enterButton.setBounds(365, 150, 100, 40);
-        exitButton.setBounds(365, 100, 100, 40);
+        enterButton.setBounds(365, 170, 100, 40);
+        exitButton.setBounds(365, 270, 100, 40);
+        bButton.setBounds(365, 390, 100, 40);
 
         listOfHeros.addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent arg0) {
@@ -193,6 +221,12 @@ public class GUI extends JFrame {
             }
         });
 
+        bButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                displayGUI();
+            }
+        });
+
 //        exitButton.addActionListener(e -> selectHeroFrame.dispose());
 
         exitButton.addActionListener(new ActionListener() {
@@ -204,6 +238,7 @@ public class GUI extends JFrame {
         selectHeroFrame.add(selectExistingPlayer);
         selectHeroFrame.add(enterButton);
         selectHeroFrame.add(exitButton);
+        selectHeroFrame.add(bButton);
         selectHeroFrame.add(listOfHeros);
         selectHeroFrame.setSize(500, 500);
         selectHeroFrame.setLocationRelativeTo(null);
@@ -227,13 +262,13 @@ public class GUI extends JFrame {
 
         JButton enterButton = new JButton("Continue");
 
-        label1 = new JLabel("YOUR STATISTICS ");
+        label1 = new JLabel("Your statistics: ");
         label1.setBounds(180, 100, 100, 30);
 
         label2 = new JLabel("Hero: " + hero);
         label2.setBounds(180, 130, 100, 30);
 
-        String playerType;
+        final String playerType;
         label3 = new JLabel("Hero: " + (playerType = player.getHeroStatistics().getPlayerType()));
         label3.setBounds(180, 150, 100, 30);
 
@@ -274,11 +309,19 @@ public class GUI extends JFrame {
         heroStatisticsFrame.setVisible(true);
         heroStatisticsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+
+//        heroData = hero.getHeroStats().getHeroType() + " " +
+//                player + " " + hero.getHeroStats().getLevel() + " " +
+//                hero.getHeroStats().getAttack() + " " + hero.getHeroStats().getAttack() +
+//                " " + hero.getHeroStats().getHitPoints() + " " + hero.getHeroStats().getExperience() +
+//                " " + artifact.toUpperCase();
+
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
 //                playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " ";
                 playerInfo = player.getHeroStatistics().getPlayerType() + " " + hero + " " + player.getHeroStatistics().getLvl() + " " +
-                            player.getHeroStatistics().getAttack() + " " + player.getHeroStatistics().getHitp() + " " + player.getHeroStatistics().getExp() + " " +
+                            player.getHeroStatistics().getAttack() + " " + player.getHeroStatistics().getAttack() + " " +
+                            player.getHeroStatistics().getHitp() + " " + player.getHeroStatistics().getExp() + " " +
                             artif.toUpperCase();
                 WriteToFile.write(playerInfo);
                 WriteToFile.close();
