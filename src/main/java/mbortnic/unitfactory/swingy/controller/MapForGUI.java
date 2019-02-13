@@ -157,11 +157,11 @@ public class MapForGUI extends JFrame {
 
         //Randomly initialize villians
         for (Villian v : villianArray) {
-            map[enemy.getyCoordinate()][enemy.getxCoordinate()] = enemy.getIdType();
+            map[v.getyCoordinate()][v.getxCoordinate()] = v.getIdType();
         }
 
         //initialize player
-        map[this.xPos][this.yPos] = 4;
+        map[this.yPos][this.xPos] = 4;
 
         // !!!!!!!!!!!!!!!!!!!!!!!!!!!!!
         //collision with viilian
@@ -227,7 +227,7 @@ public class MapForGUI extends JFrame {
 
     public Villian getEnemyCollision() {
         for (int i = 0; i < villianArray.size(); i++) {
-            if (villianArray.get(i).getyCoordinate() == this.yPos && villianArray.get(i).getyCoordinate() == this.yPos) {
+            if (villianArray.get(i).getyCoordinate() == this.yPos && villianArray.get(i).getxCoordinate() == this.xPos) {
                 return (villianArray.get(i));
             }
         }
@@ -312,13 +312,13 @@ public class MapForGUI extends JFrame {
         if ((heroX == enemyX) && (heroY == enemyY)) {
             enemy = getEnemyCollision();
             int buttonForDialog = JOptionPane.YES_NO_OPTION;
-            int buttonForResult = JOptionPane.showConfirmDialog(this, "You faced your enemy!", "Fight or Run?", buttonForDialog);
+            int buttonForResult = JOptionPane.showConfirmDialog(this, "Will you fight with your enemy?", "Fight or Run?", buttonForDialog);
 
             if (buttonForResult == 0) {
-                if (fatality() == 0) {
+                if (fatality() == 1) {
                     return true;
                 } else {
-                    JOptionPane.showMessageDialog(null, "You died!\n\n");
+                    JOptionPane.showMessageDialog(null, "Sorry! You died!\n\n");
                     jFrame.dispatchEvent(new WindowEvent(jFrame, WindowEvent.WINDOW_CLOSING));
                 }
             } else {

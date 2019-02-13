@@ -351,22 +351,22 @@ public class GUI extends JFrame {
 
         northButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(-1, 0); // 0 -1
+                guiMap.updatePlayerPos(0, -1);
             }
         });
         southButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(1, 0); // 0 1
+                guiMap.updatePlayerPos(0, 1);
             }
         });
         westButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(0, -1); // 1 0
+                guiMap.updatePlayerPos(-1, 0);
             }
         });
         eastButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(0, 1); // -1 0
+                guiMap.updatePlayerPos(1, 0);
             }
         });
 
