@@ -1,4 +1,4 @@
 Human павп 1 180 100 0 1000 HELM
-Undead rer 2 180 100 100 2450 WEAPON
-Human gdfgfg 2 100 200 100 2450 ARMOR
+Undead rer 3 180 100 0 4800 WEAPON
+Human gdfgfg 2 100 200 0 2450 ARMOR
 Undead fdsrgadtfg 1 100 200 36 1000 ARMOR

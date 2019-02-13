@@ -3,6 +3,7 @@ package mbortnic.unitfactory.swingy.controller;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.model.Villian.Villian;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
+import mbortnic.unitfactory.swingy.view.gui.GUI;
 
 import javax.swing.*;
 import java.awt.event.WindowEvent;
@@ -235,6 +236,7 @@ public class MapForGUI extends JFrame {
     }
 
     public void upgrdExp(int type) {
+        GUI gui = new GUI();
         if (type == 1) {
             int exp;
             if (player.getHeroStatistics().getExp() < 2450) {
@@ -251,7 +253,7 @@ public class MapForGUI extends JFrame {
                 player.getHeroStatistics().setExp(exp);
             } else if (player.getHeroStatistics().getExp() < 12201) {
                 System.out.println("     GAME ENDED     \n\n");
-//                GUI.endOfGame();
+                gui.endOfGame();
             }
             victory();
         } else if (type == 2) {

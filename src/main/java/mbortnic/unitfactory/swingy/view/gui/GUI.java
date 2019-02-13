@@ -4,6 +4,7 @@ import mbortnic.unitfactory.swingy.controller.MapForGUI;
 import mbortnic.unitfactory.swingy.model.Hero.Player;
 import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.writer.WriteToFile;
+import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
 import javax.swing.event.ListSelectionEvent;
@@ -384,8 +385,27 @@ public class GUI extends JFrame {
 
     }
 
-//    public void endOfGame() {
-//
-//    }
+    public void endOfGame() {
+        JButton exitButton = new JButton("END GAME");
+        JLabel newLabel = new JLabel("     Continue your game      ");
+
+        newLabel.setBounds(150, 140, 500, 40);
+        exitButton.setBounds(170, 160, 300, 40);
+
+        exitButton.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                gameOverFrame.dispose();
+                System.exit(0);
+            }
+        });
+
+        gameOverFrame.add(newLabel);
+        gameOverFrame.add(exitButton);
+        gameOverFrame.setSize(500, 500);
+        gameOverFrame.setLocationRelativeTo(null);
+        gameOverFrame.setLayout(null);
+        gameOverFrame.setVisible(true);
+        gameOverFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    }
 
 }
