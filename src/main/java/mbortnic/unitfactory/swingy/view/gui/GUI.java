@@ -342,33 +342,34 @@ public class GUI extends JFrame {
         guiMap = new MapForGUI(player, gameFrame);
         textArea = guiMap.showGamefield();
 
-        northButton.setBounds(20, 480, 100, 30);
-        southButton.setBounds(140, 480, 100, 30);
-        westButton.setBounds(280, 480, 100, 30);
-        eastButton.setBounds(400, 480, 100, 30);
+        textArea.setBounds(150, 100, 500, 500);
+
+        northButton.setBounds(130, 660, 100, 40);
+        southButton.setBounds(270, 660, 100, 40);
+        westButton.setBounds(430, 660, 100, 40);
+        eastButton.setBounds(580, 660, 100, 40);
 
         northButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(0, -1);
+                guiMap.updatePlayerPos(-1, 0); // 0 -1
             }
         });
         southButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(0, 1);
+                guiMap.updatePlayerPos(1, 0); // 0 1
             }
         });
         westButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(1, 0);
+                guiMap.updatePlayerPos(0, -1); // 1 0
             }
         });
         eastButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                guiMap.updatePlayerPos(-1, 0);
+                guiMap.updatePlayerPos(0, 1); // -1 0
             }
         });
 
-        textArea.setBounds(20, 100, 500, 500);
         gameFrame.add(textArea);
         gameFrame.add(northButton);
         gameFrame.add(southButton);
