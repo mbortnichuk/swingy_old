@@ -100,8 +100,8 @@ public class MapForGUI extends JFrame {
         this.xOld = this.xPos;
         this.yOld = this.yPos;
 
-        System.out.println("XPOS: " + this.xPos);
-        System.out.println("YPOS: " + this.yPos);
+//        System.out.println("XPOS: " + this.xPos);
+//        System.out.println("YPOS: " + this.yPos);
 
         this.xPos += xPos;
         if (this.xPos < 0) {

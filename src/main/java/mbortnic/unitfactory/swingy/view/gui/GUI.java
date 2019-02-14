@@ -61,7 +61,7 @@ public class GUI extends JFrame {
     public void displayFrame() {
 //        createPlayerLabel.setBackground(Color.blue);
         createPlayerLabel.setBounds(190, 100, 200, 40);
-//        enterPlayerNameLabel.setBackground(Color.blue);
+//        enterPlayerNameLabel.setBackground(Color.BLUE);
         enterPlayerNameLabel.setBounds(200, 170, 200, 30);
 //        playerNameField.setCaretColor(Color.cyan);
         playerNameField.setBounds(130, 200, 250, 35);
@@ -115,7 +115,7 @@ public class GUI extends JFrame {
 
     public void displayGUI() {
         createPlayerButton.setBounds(180, 170, 120, 40);
-//        createPlayerButton.setBackground(Color.yellow);
+//        createPlayerButton.setBackground(Color.YELLOW);
         selectPlayerButton.setBounds(180, 230, 120, 40);
 //        selectPlayerButton.setBackground(Color.blue);
 
