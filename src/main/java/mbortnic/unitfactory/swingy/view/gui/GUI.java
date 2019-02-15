@@ -7,6 +7,7 @@ import mbortnic.unitfactory.swingy.writer.WriteToFile;
 import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
@@ -32,8 +33,8 @@ public class GUI extends JFrame {
     private final JFrame gameFrame = new JFrame("Swingy Game");
     private static JFrame gameOverFrame = new JFrame("Game Over");
 
-    private JLabel createPlayerLabel = new JLabel("CREATE YOUR HERO");
-    private JLabel enterPlayerNameLabel = new JLabel("Name your hero");
+    private JLabel createPlayerLabel = new JLabel(" CREATE YOUR HERO");
+    private JLabel enterPlayerNameLabel = new JLabel(" Name your hero");
     private JLabel selectExistingPlayer = new JLabel("Select existing hero");
 
     private JTextField playerNameField = new JTextField();
@@ -59,17 +60,25 @@ public class GUI extends JFrame {
 
 
     public void displayFrame() {
-        createPlayerLabel.setBounds(190, 100, 130, 40);
+        createPlayerLabel.setBounds(175, 95, 160, 35);
         createPlayerLabel.setBackground(Color.GREEN);
         createPlayerLabel.setOpaque(true);
+        createPlayerLabel.setFont(new Font("Courier", Font.PLAIN, 15));
 
-        enterPlayerNameLabel.setBounds(200, 170, 200, 30);
-//        enterPlayerNameLabel.setBackground(Color.BLUE);
+        enterPlayerNameLabel.setBounds(190, 170, 125, 30);
+        enterPlayerNameLabel.setBackground(Color.GREEN);
+        enterPlayerNameLabel.setOpaque(true);
+        enterPlayerNameLabel.setFont(new Font("Courier", Font.PLAIN, 13));;
 
+        playerNameField.setBounds(130, 210, 250, 35);
         playerNameField.setCaretColor(Color.GREEN);
-        playerNameField.setBounds(130, 200, 250, 35);
+        playerNameField.setBackground(Color.BLACK);
+        playerNameField.setForeground(Color.GREEN);
+        playerNameField.setText("Enter name here");
+        Border border = BorderFactory.createLineBorder(Color.GREEN, 2);
+        playerNameField.setBorder(border);
 
-        welcomeButton.setBounds(155, 250, 200, 30);
+        welcomeButton.setBounds(155, 260, 200, 30);
         welcomeButton.setBackground(Color.GREEN);
         welcomeButton.setOpaque(true);
         welcomeButton.setBorderPainted(false);
@@ -86,6 +95,8 @@ public class GUI extends JFrame {
         playerCreationFrame.add(playerNameField);
         playerCreationFrame.add(welcomeButton);
         playerCreationFrame.setSize(500, 500);
+        playerCreationFrame.setBackground(Color.BLACK);
+        playerCreationFrame.getContentPane().setBackground(Color.BLACK);
         playerCreationFrame.setLocationRelativeTo(null);
         playerCreationFrame.setLayout(null);
         playerCreationFrame.setVisible(true);
@@ -129,13 +140,14 @@ public class GUI extends JFrame {
         createPlayerButton.setBackground(Color.GREEN);
         createPlayerButton.setOpaque(true);
         createPlayerButton.setBorderPainted(false);
-        createPlayerButton.setFont(new Font("Courier", Font.PLAIN, 14));
+        createPlayerButton.setFont(new Font("Courier", Font.PLAIN, 16));
 //        createPlayerButton.setForeground(Color.BLACK);
 
-        selectPlayerButton.setBounds(180, 230, 120, 40);
+        selectPlayerButton.setBounds(180, 260, 120, 40);
         selectPlayerButton.setBackground(Color.GREEN);
         selectPlayerButton.setOpaque(true);
         selectPlayerButton.setBorderPainted(false);
+        selectPlayerButton.setFont(new Font("Courier", Font.PLAIN, 16));
 
         swingyFrame.add(createPlayerButton);
         swingyFrame.add(selectPlayerButton);
