@@ -272,19 +272,19 @@ public class GUI extends JFrame {
         listOfHeros.setFont(new Font("Courier", Font.PLAIN, 12));
         listOfHeros.setSelectedIndex(0);
 
-        enterButton.setBounds(365, 170, 100, 40);
+        enterButton.setBounds(365, 70, 100, 40); // 365 70 100 40
         enterButton.setBackground(Color.GREEN);
         enterButton.setOpaque(true);
         enterButton.setBorderPainted(false);
         enterButton.setFont(new Font("Courier", Font.PLAIN, 12));
 
-        exitButton.setBounds(365, 270, 100, 40);
+        exitButton.setBounds(365, 390, 100, 40);
         exitButton.setBackground(Color.GREEN);
         exitButton.setOpaque(true);
         exitButton.setBorderPainted(false);
         exitButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        bButton.setBounds(365, 390, 100, 40);
+        bButton.setBounds(365, 170, 100, 40); // 365 390 100 40
         bButton.setBackground(Color.GREEN);
         bButton.setOpaque(true);
         bButton.setBorderPainted(false);

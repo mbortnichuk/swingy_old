@@ -177,9 +177,12 @@ public class MapForGUI extends JFrame {
             }
         }
 
-        textArea.append("Lvl: " + String.valueOf(player.getHeroStatistics().getLvl()) + " | " + "Attack: " + player.getHeroStatistics().getAttack() + " | " +
-                        "Protection: " + player.getHeroStatistics().getProtection() + " | " + "Hit points: " + String.valueOf(player.getHeroStatistics().getHitp()) + " | " +
-                        "Exp: " + String.valueOf(player.getHeroStatistics().getExp()) + "\n\n");
+        textArea.append("Lvl: ................ " + String.valueOf(player.getHeroStatistics().getLvl()) + "\n" +
+                        "Attack: .......... " + player.getHeroStatistics().getAttack() + "\n" +
+                        "Protection: .... " + player.getHeroStatistics().getProtection() + "\n" +
+                        "Hit points: .... " + String.valueOf(player.getHeroStatistics().getHitp()) + "\n" +
+                        "Exp: .............. " + String.valueOf(player.getHeroStatistics().getExp()) + "\n" +
+                        "Artif: ............. " + String.valueOf(player.getArt().getArtType()) + "\n\n");
 
         for (int y = 0; y < yCoordinate; y++) {
             for (int x = 0; x < xCoordinate; x++) {
