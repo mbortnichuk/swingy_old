@@ -22,8 +22,12 @@ public class GUI extends JFrame {
     public GUI () {
     }
 
+//    DefaultListModel listModel = new DefaultListModel();
+
     private final String[] heroList = ReadFromFile.readLineFromFile();
     private final JList listOfHeros = new JList(heroList);
+//    JScrollPane scrollPane = new JScrollPane();
+
 
     private final JFrame createHeroFrame = new JFrame("Create your Hero");
     private final JFrame selectHeroFrame = new JFrame("Select your Hero");
@@ -35,7 +39,7 @@ public class GUI extends JFrame {
 
     private JLabel createPlayerLabel = new JLabel(" CREATE YOUR HERO");
     private JLabel enterPlayerNameLabel = new JLabel(" Name your hero");
-    private JLabel selectExistingPlayer = new JLabel("Select existing hero");
+    private JLabel selectExistingPlayer = new JLabel(" Select existing hero");
 
     private JTextField playerNameField = new JTextField();
     private JTextArea textArea = new JTextArea();
@@ -91,7 +95,6 @@ public class GUI extends JFrame {
         playerCreationFrame.add(enterPlayerNameLabel);
         playerCreationFrame.add(createPlayerLabel);
         playerCreationFrame.add(backButton);
-        playerCreationFrame.setBackground(Color.yellow);
         playerCreationFrame.add(playerNameField);
         playerCreationFrame.add(welcomeButton);
         playerCreationFrame.setSize(500, 500);
@@ -105,6 +108,7 @@ public class GUI extends JFrame {
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 displayGUI();
+                playerCreationFrame.dispose();
             }
         });
 
@@ -181,10 +185,26 @@ public class GUI extends JFrame {
     public void createHero() {
         ButtonGroup bGroup = new ButtonGroup();
         JButton bButton = new JButton("Back");
+
         humanButton.setBounds(200, 180, 100, 40);
+        humanButton.setForeground(Color.GREEN);
+
         undeadButton.setBounds(200, 210, 100, 40);
-        enterButton.setBounds(200, 260, 100, 40);
+        undeadButton.setForeground(Color.GREEN);
+
+
+        enterButton.setBounds(200, 280, 100, 40);
+        enterButton.setBackground(Color.GREEN);
+        enterButton.setOpaque(true);
+        enterButton.setBorderPainted(false);
+        enterButton.setFont(new Font("Courier", Font.PLAIN, 16));
+
         bButton.setBounds(200, 340, 100, 40);
+        bButton.setBackground(Color.GREEN);
+        bButton.setOpaque(true);
+        bButton.setBorderPainted(false);
+        bButton.setFont(new Font("Courier", Font.PLAIN, 16));
+
 
         humanButton.setSelected(true);
 //        createHeroFrame.getRootPane().setDefaultButton(humanButton);
@@ -197,6 +217,8 @@ public class GUI extends JFrame {
         createHeroFrame.add(enterButton);
         createHeroFrame.add(bButton);
         createHeroFrame.setSize(500, 500);
+        createHeroFrame.setBackground(Color.BLACK);
+        createHeroFrame.getContentPane().setBackground(Color.BLACK);
         createHeroFrame.setLocationRelativeTo(null);
         createHeroFrame.setLayout(null);
         createHeroFrame.setVisible(true);
@@ -218,21 +240,46 @@ public class GUI extends JFrame {
         bButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 displayFrame();
+                createHeroFrame.dispose();
             }
         });
     }
 
     public void selectHero() {
         JButton enterButton = new JButton("CONTINUE");
-        JButton exitButton = new JButton("EXIT SWINGY");
+        JButton exitButton = new JButton("EXIT");
 
         JButton bButton = new JButton("Back");
 
-        selectExistingPlayer.setBounds(200, 20, 200, 30);
+        selectExistingPlayer.setBounds(160, 20, 200, 30);
+        selectExistingPlayer.setBackground(Color.GREEN);
+        selectExistingPlayer.setOpaque(true);
+        selectExistingPlayer.setFont(new Font("Courier", Font.PLAIN, 15));
+
         listOfHeros.setBounds(20, 70, 320, 360);
+        listOfHeros.setBackground(Color.GREEN);
+        listOfHeros.setOpaque(true);
+        listOfHeros.setFont(new Font("Courier", Font.PLAIN, 12));
+        listOfHeros.setSelectedIndex(0);
+
         enterButton.setBounds(365, 170, 100, 40);
+        enterButton.setBackground(Color.GREEN);
+        enterButton.setOpaque(true);
+        enterButton.setBorderPainted(false);
+        enterButton.setFont(new Font("Courier", Font.PLAIN, 12));
+
         exitButton.setBounds(365, 270, 100, 40);
+        exitButton.setBackground(Color.GREEN);
+        exitButton.setOpaque(true);
+        exitButton.setBorderPainted(false);
+        exitButton.setFont(new Font("Courier", Font.PLAIN, 13));
+
         bButton.setBounds(365, 390, 100, 40);
+        bButton.setBackground(Color.GREEN);
+        bButton.setOpaque(true);
+        bButton.setBorderPainted(false);
+        bButton.setFont(new Font("Courier", Font.PLAIN, 13));
+
 
         listOfHeros.addListSelectionListener(new ListSelectionListener(){
             public void valueChanged(ListSelectionEvent arg0) {
@@ -257,6 +304,7 @@ public class GUI extends JFrame {
         bButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 displayGUI();
+                selectHeroFrame.dispose();
             }
         });
 
@@ -273,7 +321,10 @@ public class GUI extends JFrame {
         selectHeroFrame.add(exitButton);
         selectHeroFrame.add(bButton);
         selectHeroFrame.add(listOfHeros);
+//        selectHeroFrame.add(new JScrollPane(listOfHeros));
         selectHeroFrame.setSize(500, 500);
+        selectHeroFrame.setBackground(Color.BLACK);
+        selectHeroFrame.getContentPane().setBackground(Color.BLACK);
         selectHeroFrame.setLocationRelativeTo(null);
         selectHeroFrame.setLayout(null);
         selectHeroFrame.setVisible(true);
