@@ -1,6 +1,6 @@
 Human павп 1 180 100 0 1000 HELM
 Undead rer 3 180 100 0 4800 WEAPON
-Human gdfgfg 2 100 200 0 2450 ARMOR
+Human gdfgfg 5 100 200 0 12200 ARMOR
 Undead fdsrgadtfg 1 100 200 0 1000 ARMOR
 Human 646 1 100 200 100 1000 ARMOR
 Human 646 1 100 200 46 1000 ARMOR
@@ -10,8 +10,3 @@ Human yoyoyo! 1 180 100 100 1000 HELM
 Human yoyoyo! 1 180 180 100 1000 HELM
 Undead yoyoyo 1 180 100 100 1000 HELM
 Undead yoyoyo 1 180 180 100 1000 HELM
-
-Human yoyoyo! 1 100 200 100 1000 ARMOR
-Human yoyoyo! 1 180 100 35 1000 HELM
-Undead Enter_name_here 1 100 200 100 1000 ARMOR
-Undead Enter_name_here 1 100 100 100 1000 ARMOR

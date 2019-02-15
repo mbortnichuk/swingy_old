@@ -459,11 +459,35 @@ public class GUI extends JFrame {
         textArea = guiMap.showGamefield();
 
         textArea.setBounds(150, 100, 500, 500);
+        textArea.setForeground(Color.GREEN);
+        textArea.setBackground(Color.BLACK);
+        Border border = BorderFactory.createLineBorder(Color.GREEN, 1);
+        textArea.setBorder(border);
 
         northButton.setBounds(130, 660, 100, 40);
+        northButton.setBackground(Color.GREEN);
+        northButton.setOpaque(true);
+        northButton.setBorderPainted(false);
+        northButton.setFont(new Font("Courier", Font.PLAIN, 13));
+
         southButton.setBounds(270, 660, 100, 40);
+        southButton.setBackground(Color.GREEN);
+        southButton.setOpaque(true);
+        southButton.setBorderPainted(false);
+        southButton.setFont(new Font("Courier", Font.PLAIN, 13));
+
         westButton.setBounds(430, 660, 100, 40);
+        westButton.setBackground(Color.GREEN);
+        westButton.setOpaque(true);
+        westButton.setBorderPainted(false);
+        westButton.setFont(new Font("Courier", Font.PLAIN, 13));
+
         eastButton.setBounds(580, 660, 100, 40);
+        eastButton.setBackground(Color.GREEN);
+        eastButton.setOpaque(true);
+        eastButton.setBorderPainted(false);
+        eastButton.setFont(new Font("Courier", Font.PLAIN, 13));
+
 
         northButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -491,6 +515,8 @@ public class GUI extends JFrame {
         gameFrame.add(southButton);
         gameFrame.add(westButton);
         gameFrame.add(eastButton);
+        gameFrame.setBackground(Color.BLACK);
+        gameFrame.getContentPane().setBackground(Color.BLACK);
 
         gameFrame.setSize(800, 800);
         gameFrame.setLocationRelativeTo(null);
@@ -502,10 +528,10 @@ public class GUI extends JFrame {
 
     public void endOfGame() {
         JButton exitButton = new JButton("END GAME");
-        JLabel newLabel = new JLabel("     Continue your game      ");
+        JLabel newLabel = new JLabel("Game ended!");
 
-        newLabel.setBounds(150, 140, 500, 40);
-        exitButton.setBounds(170, 160, 300, 40);
+        newLabel.setBounds(155, 90, 100, 40);
+        exitButton.setBounds(150, 150, 100, 40);
 
         exitButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -516,7 +542,7 @@ public class GUI extends JFrame {
 
         gameOverFrame.add(newLabel);
         gameOverFrame.add(exitButton);
-        gameOverFrame.setSize(500, 500);
+        gameOverFrame.setSize(400, 400);
         gameOverFrame.setLocationRelativeTo(null);
         gameOverFrame.setLayout(null);
         gameOverFrame.setVisible(true);
