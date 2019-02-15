@@ -4,6 +4,7 @@
     <list default="true" id="89d9811f-bdf0-413d-bba0-6eafeca81b6c" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/PlayerList.txt" afterPath="$PROJECT_DIR$/PlayerList.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java" afterPath="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/view/gui/GUI.java" afterPath="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/view/gui/GUI.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -29,11 +30,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GUI.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/view/gui/GUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="751">
-              <caret line="532" column="39" lean-forward="false" selection-start-line="532" selection-start-column="39" selection-end-line="532" selection-end-column="39" />
+            <state relative-caret-position="550">
+              <caret line="467" column="71" lean-forward="false" selection-start-line="467" selection-start-column="71" selection-end-line="467" selection-end-column="71" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4414#4594#0" expanded="true" />
@@ -58,16 +59,16 @@
                 <element signature="e#12321#12322#0" expanded="true" />
                 <element signature="e#16848#17680#0" expanded="true" />
                 <element signature="e#17679#17680#0" expanded="true" />
-                <element signature="e#19280#19430#0" expanded="true" />
-                <element signature="e#19429#19430#0" expanded="true" />
-                <element signature="e#19471#19620#0" expanded="true" />
-                <element signature="e#19619#19620#0" expanded="true" />
-                <element signature="e#19660#19810#0" expanded="true" />
-                <element signature="e#19809#19810#0" expanded="true" />
-                <element signature="e#19850#19999#0" expanded="true" />
-                <element signature="e#19998#19999#0" expanded="true" />
-                <element signature="e#21089#21265#0" expanded="true" />
-                <element signature="e#21264#21265#0" expanded="true" />
+                <element signature="e#19362#19512#0" expanded="true" />
+                <element signature="e#19511#19512#0" expanded="true" />
+                <element signature="e#19553#19702#0" expanded="true" />
+                <element signature="e#19701#19702#0" expanded="true" />
+                <element signature="e#19742#19892#0" expanded="true" />
+                <element signature="e#19891#19892#0" expanded="true" />
+                <element signature="e#19932#20081#0" expanded="true" />
+                <element signature="e#20080#20081#0" expanded="true" />
+                <element signature="e#21171#21347#0" expanded="true" />
+                <element signature="e#21346#21347#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -85,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MapForGUI.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MapForGUI.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="846">
-              <caret line="184" column="94" lean-forward="false" selection-start-line="184" selection-start-column="94" selection-end-line="184" selection-end-column="94" />
+            <state relative-caret-position="589">
+              <caret line="194" column="27" lean-forward="true" selection-start-line="194" selection-start-column="27" selection-end-line="194" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -223,8 +224,8 @@
         <option value="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/Main.java" />
         <option value="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/view/console/Console.java" />
         <option value="$PROJECT_DIR$/PlayerList.txt" />
-        <option value="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java" />
         <option value="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/view/gui/GUI.java" />
+        <option value="$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java" />
       </list>
     </option>
   </component>
@@ -1125,12 +1126,12 @@
       <workItem from="1550055953600" duration="4475000" />
       <workItem from="1550064048915" duration="7119000" />
       <workItem from="1550138976277" duration="3855000" />
-      <workItem from="1550217264518" duration="14604000" />
+      <workItem from="1550217264518" duration="17420000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43905000" />
+    <option name="totallyTimeSpent" value="46721000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1143,7 +1144,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1359" height="1417" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1155,9 +1155,9 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.10294118" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.13584906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.13584906" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1826415" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1826415" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14426728" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -1297,16 +1297,16 @@
             <element signature="e#12321#12322#0" expanded="true" />
             <element signature="e#16848#17680#0" expanded="true" />
             <element signature="e#17679#17680#0" expanded="true" />
-            <element signature="e#19280#19430#0" expanded="true" />
-            <element signature="e#19429#19430#0" expanded="true" />
-            <element signature="e#19471#19620#0" expanded="true" />
-            <element signature="e#19619#19620#0" expanded="true" />
-            <element signature="e#19660#19810#0" expanded="true" />
-            <element signature="e#19809#19810#0" expanded="true" />
-            <element signature="e#19850#19999#0" expanded="true" />
-            <element signature="e#19998#19999#0" expanded="true" />
-            <element signature="e#21089#21265#0" expanded="true" />
-            <element signature="e#21264#21265#0" expanded="true" />
+            <element signature="e#19362#19512#0" expanded="true" />
+            <element signature="e#19511#19512#0" expanded="true" />
+            <element signature="e#19553#19702#0" expanded="true" />
+            <element signature="e#19701#19702#0" expanded="true" />
+            <element signature="e#19742#19892#0" expanded="true" />
+            <element signature="e#19891#19892#0" expanded="true" />
+            <element signature="e#19932#20081#0" expanded="true" />
+            <element signature="e#20080#20081#0" expanded="true" />
+            <element signature="e#21171#21347#0" expanded="true" />
+            <element signature="e#21346#21347#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1415,16 +1415,16 @@
             <element signature="e#12321#12322#0" expanded="true" />
             <element signature="e#16848#17680#0" expanded="true" />
             <element signature="e#17679#17680#0" expanded="true" />
-            <element signature="e#19280#19430#0" expanded="true" />
-            <element signature="e#19429#19430#0" expanded="true" />
-            <element signature="e#19471#19620#0" expanded="true" />
-            <element signature="e#19619#19620#0" expanded="true" />
-            <element signature="e#19660#19810#0" expanded="true" />
-            <element signature="e#19809#19810#0" expanded="true" />
-            <element signature="e#19850#19999#0" expanded="true" />
-            <element signature="e#19998#19999#0" expanded="true" />
-            <element signature="e#21089#21265#0" expanded="true" />
-            <element signature="e#21264#21265#0" expanded="true" />
+            <element signature="e#19362#19512#0" expanded="true" />
+            <element signature="e#19511#19512#0" expanded="true" />
+            <element signature="e#19553#19702#0" expanded="true" />
+            <element signature="e#19701#19702#0" expanded="true" />
+            <element signature="e#19742#19892#0" expanded="true" />
+            <element signature="e#19891#19892#0" expanded="true" />
+            <element signature="e#19932#20081#0" expanded="true" />
+            <element signature="e#20080#20081#0" expanded="true" />
+            <element signature="e#21171#21347#0" expanded="true" />
+            <element signature="e#21346#21347#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1533,16 +1533,16 @@
             <element signature="e#12321#12322#0" expanded="true" />
             <element signature="e#16848#17680#0" expanded="true" />
             <element signature="e#17679#17680#0" expanded="true" />
-            <element signature="e#19280#19430#0" expanded="true" />
-            <element signature="e#19429#19430#0" expanded="true" />
-            <element signature="e#19471#19620#0" expanded="true" />
-            <element signature="e#19619#19620#0" expanded="true" />
-            <element signature="e#19660#19810#0" expanded="true" />
-            <element signature="e#19809#19810#0" expanded="true" />
-            <element signature="e#19850#19999#0" expanded="true" />
-            <element signature="e#19998#19999#0" expanded="true" />
-            <element signature="e#21089#21265#0" expanded="true" />
-            <element signature="e#21264#21265#0" expanded="true" />
+            <element signature="e#19362#19512#0" expanded="true" />
+            <element signature="e#19511#19512#0" expanded="true" />
+            <element signature="e#19553#19702#0" expanded="true" />
+            <element signature="e#19701#19702#0" expanded="true" />
+            <element signature="e#19742#19892#0" expanded="true" />
+            <element signature="e#19891#19892#0" expanded="true" />
+            <element signature="e#19932#20081#0" expanded="true" />
+            <element signature="e#20080#20081#0" expanded="true" />
+            <element signature="e#21171#21347#0" expanded="true" />
+            <element signature="e#21346#21347#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1753,18 +1753,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="846">
-          <caret line="184" column="94" lean-forward="false" selection-start-line="184" selection-start-column="94" selection-end-line="184" selection-end-column="94" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/view/gui/GUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="751">
-          <caret line="532" column="39" lean-forward="false" selection-start-line="532" selection-start-column="39" selection-end-line="532" selection-end-column="39" />
+        <state relative-caret-position="550">
+          <caret line="467" column="71" lean-forward="false" selection-start-line="467" selection-start-column="71" selection-end-line="467" selection-end-column="71" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#4414#4594#0" expanded="true" />
@@ -1789,17 +1781,25 @@
             <element signature="e#12321#12322#0" expanded="true" />
             <element signature="e#16848#17680#0" expanded="true" />
             <element signature="e#17679#17680#0" expanded="true" />
-            <element signature="e#19280#19430#0" expanded="true" />
-            <element signature="e#19429#19430#0" expanded="true" />
-            <element signature="e#19471#19620#0" expanded="true" />
-            <element signature="e#19619#19620#0" expanded="true" />
-            <element signature="e#19660#19810#0" expanded="true" />
-            <element signature="e#19809#19810#0" expanded="true" />
-            <element signature="e#19850#19999#0" expanded="true" />
-            <element signature="e#19998#19999#0" expanded="true" />
-            <element signature="e#21089#21265#0" expanded="true" />
-            <element signature="e#21264#21265#0" expanded="true" />
+            <element signature="e#19362#19512#0" expanded="true" />
+            <element signature="e#19511#19512#0" expanded="true" />
+            <element signature="e#19553#19702#0" expanded="true" />
+            <element signature="e#19701#19702#0" expanded="true" />
+            <element signature="e#19742#19892#0" expanded="true" />
+            <element signature="e#19891#19892#0" expanded="true" />
+            <element signature="e#19932#20081#0" expanded="true" />
+            <element signature="e#20080#20081#0" expanded="true" />
+            <element signature="e#21171#21347#0" expanded="true" />
+            <element signature="e#21346#21347#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/mbortnic/unitfactory/swingy/controller/MapForGUI.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="194" column="27" lean-forward="true" selection-start-line="194" selection-start-column="27" selection-end-line="194" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>

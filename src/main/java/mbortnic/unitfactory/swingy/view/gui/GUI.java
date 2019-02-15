@@ -455,34 +455,38 @@ public class GUI extends JFrame {
         JButton westButton = new JButton("West");
         JButton eastButton = new JButton("East");
 
+        JLabel swingy = new JLabel("Let's play!");
+
         guiMap = new MapForGUI(player, gameFrame);
         textArea = guiMap.showGamefield();
 
-        textArea.setBounds(150, 100, 500, 500);
+//        swingy.setBounds();
+
+        textArea.setBounds(50, 100, 757, 500);
         textArea.setForeground(Color.GREEN);
         textArea.setBackground(Color.BLACK);
         Border border = BorderFactory.createLineBorder(Color.GREEN, 1);
         textArea.setBorder(border);
 
-        northButton.setBounds(130, 660, 100, 40);
+        northButton.setBounds(140, 660, 100, 40);
         northButton.setBackground(Color.GREEN);
         northButton.setOpaque(true);
         northButton.setBorderPainted(false);
         northButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        southButton.setBounds(270, 660, 100, 40);
+        southButton.setBounds(280, 660, 100, 40);
         southButton.setBackground(Color.GREEN);
         southButton.setOpaque(true);
         southButton.setBorderPainted(false);
         southButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        westButton.setBounds(430, 660, 100, 40);
+        westButton.setBounds(440, 660, 100, 40);
         westButton.setBackground(Color.GREEN);
         westButton.setOpaque(true);
         westButton.setBorderPainted(false);
         westButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        eastButton.setBounds(580, 660, 100, 40);
+        eastButton.setBounds(590, 660, 100, 40);
         eastButton.setBackground(Color.GREEN);
         eastButton.setOpaque(true);
         eastButton.setBorderPainted(false);
@@ -518,7 +522,7 @@ public class GUI extends JFrame {
         gameFrame.setBackground(Color.BLACK);
         gameFrame.getContentPane().setBackground(Color.BLACK);
 
-        gameFrame.setSize(800, 800);
+        gameFrame.setSize(857, 807);
         gameFrame.setLocationRelativeTo(null);
         gameFrame.setLayout(null);
         gameFrame.setVisible(true);

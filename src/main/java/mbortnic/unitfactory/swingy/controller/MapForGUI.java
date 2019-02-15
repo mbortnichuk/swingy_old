@@ -6,6 +6,8 @@ import mbortnic.unitfactory.swingy.reader.ReadFromFile;
 import mbortnic.unitfactory.swingy.view.gui.GUI;
 
 import javax.swing.*;
+import javax.swing.border.Border;
+import java.awt.*;
 import java.awt.event.WindowEvent;
 import java.util.ArrayList;
 import java.util.Random;
