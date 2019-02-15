@@ -59,15 +59,26 @@ public class GUI extends JFrame {
 
 
     public void displayFrame() {
-//        createPlayerLabel.setBackground(Color.blue);
-        createPlayerLabel.setBounds(190, 100, 200, 40);
-//        enterPlayerNameLabel.setBackground(Color.BLUE);
+        createPlayerLabel.setBounds(190, 100, 130, 40);
+        createPlayerLabel.setBackground(Color.GREEN);
+        createPlayerLabel.setOpaque(true);
+
         enterPlayerNameLabel.setBounds(200, 170, 200, 30);
-//        playerNameField.setCaretColor(Color.cyan);
+//        enterPlayerNameLabel.setBackground(Color.BLUE);
+
+        playerNameField.setCaretColor(Color.GREEN);
         playerNameField.setBounds(130, 200, 250, 35);
-//        welcomeButton.setBackground(Color.red);
+
         welcomeButton.setBounds(155, 250, 200, 30);
+        welcomeButton.setBackground(Color.GREEN);
+        welcomeButton.setOpaque(true);
+        welcomeButton.setBorderPainted(false);
+
         backButton.setBounds(200, 340, 100, 40);
+        backButton.setBackground(Color.GREEN);
+        backButton.setOpaque(true);
+        backButton.setBorderPainted(false);
+
         playerCreationFrame.add(enterPlayerNameLabel);
         playerCreationFrame.add(createPlayerLabel);
         playerCreationFrame.add(backButton);
@@ -115,13 +126,22 @@ public class GUI extends JFrame {
 
     public void displayGUI() {
         createPlayerButton.setBounds(180, 170, 120, 40);
-//        createPlayerButton.setBackground(Color.YELLOW);
+        createPlayerButton.setBackground(Color.GREEN);
+        createPlayerButton.setOpaque(true);
+        createPlayerButton.setBorderPainted(false);
+        createPlayerButton.setFont(new Font("Courier", Font.PLAIN, 14));
+//        createPlayerButton.setForeground(Color.BLACK);
+
         selectPlayerButton.setBounds(180, 230, 120, 40);
-//        selectPlayerButton.setBackground(Color.blue);
+        selectPlayerButton.setBackground(Color.GREEN);
+        selectPlayerButton.setOpaque(true);
+        selectPlayerButton.setBorderPainted(false);
 
         swingyFrame.add(createPlayerButton);
         swingyFrame.add(selectPlayerButton);
         swingyFrame.setSize(500, 500);
+        swingyFrame.setBackground(Color.BLACK);
+        swingyFrame.getContentPane().setBackground(Color.BLACK);
         swingyFrame.setLocationRelativeTo(null);
         swingyFrame.setLayout(null);
         swingyFrame.setVisible(true);
