@@ -64,17 +64,19 @@ public class GUI extends JFrame {
 
 
     public void displayFrame() {
-        createPlayerLabel.setBounds(175, 95, 160, 35);
-        createPlayerLabel.setBackground(Color.GREEN);
+        createPlayerLabel.setBounds(165, 95, 200, 35);
+        createPlayerLabel.setBackground(Color.BLACK);
+        createPlayerLabel.setForeground(Color.GREEN);
         createPlayerLabel.setOpaque(true);
-        createPlayerLabel.setFont(new Font("Courier", Font.PLAIN, 15));
+        createPlayerLabel.setFont(new Font("Courier", Font.PLAIN, 16));
 
         enterPlayerNameLabel.setBounds(190, 170, 125, 30);
-        enterPlayerNameLabel.setBackground(Color.GREEN);
+        enterPlayerNameLabel.setBackground(Color.BLACK);
+        enterPlayerNameLabel.setForeground(Color.GREEN);
         enterPlayerNameLabel.setOpaque(true);
-        enterPlayerNameLabel.setFont(new Font("Courier", Font.PLAIN, 13));;
+        enterPlayerNameLabel.setFont(new Font("Courier", Font.PLAIN, 14));;
 
-        playerNameField.setBounds(130, 210, 250, 35);
+        playerNameField.setBounds(130, 210, 250, 30);
         playerNameField.setCaretColor(Color.GREEN);
         playerNameField.setBackground(Color.BLACK);
         playerNameField.setForeground(Color.GREEN);
@@ -185,21 +187,28 @@ public class GUI extends JFrame {
     public void createHero() {
         ButtonGroup bGroup = new ButtonGroup();
         JButton bButton = new JButton("Back");
+        JLabel race = new JLabel("CHOOSE YOUR RACE");
 
-        humanButton.setBounds(200, 180, 100, 40);
+        race.setBounds(165, 55, 200, 30);
+        race.setForeground(Color.GREEN);
+        race.setFont(new Font("Courier", Font.PLAIN, 16));
+
+        humanButton.setBounds(200, 130, 100, 40);
         humanButton.setForeground(Color.GREEN);
+        humanButton.setFont(new Font("Courier", Font.PLAIN, 14));
 
-        undeadButton.setBounds(200, 210, 100, 40);
+        undeadButton.setBounds(200, 160, 100, 40);
         undeadButton.setForeground(Color.GREEN);
+        undeadButton.setFont(new Font("Courier", Font.PLAIN, 14));
 
 
-        enterButton.setBounds(200, 280, 100, 40);
+        enterButton.setBounds(200, 230, 100, 40);
         enterButton.setBackground(Color.GREEN);
         enterButton.setOpaque(true);
         enterButton.setBorderPainted(false);
         enterButton.setFont(new Font("Courier", Font.PLAIN, 16));
 
-        bButton.setBounds(200, 340, 100, 40);
+        bButton.setBounds(200, 360, 100, 40);
         bButton.setBackground(Color.GREEN);
         bButton.setOpaque(true);
         bButton.setBorderPainted(false);
@@ -212,6 +221,7 @@ public class GUI extends JFrame {
         bGroup.add(humanButton);
         bGroup.add(undeadButton);
 
+        createHeroFrame.add(race);
         createHeroFrame.add(humanButton);
         createHeroFrame.add(undeadButton);
         createHeroFrame.add(enterButton);
