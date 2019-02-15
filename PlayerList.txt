@@ -10,5 +10,4 @@ Human yoyoyo! 1 180 100 100 1000 HELM
 Human yoyoyo! 1 180 180 100 1000 HELM
 Undead yoyoyo 1 180 100 100 1000 HELM
 Undead yoyoyo 1 180 180 100 1000 HELM
-Undead Enter_name_here 1 180 100 100 1000 WEAPON
-Undead Enter_name_here 1 180 180 100 1000 WEAPON
+

@@ -345,35 +345,55 @@ public class GUI extends JFrame {
         JLabel label8;
 
         JButton enterButton = new JButton("Continue");
+        enterButton.setBackground(Color.GREEN);
+        enterButton.setOpaque(true);
+        enterButton.setBorderPainted(false);
+        enterButton.setFont(new Font("Courier", Font.PLAIN, 12));
 
-        label1 = new JLabel("Your statistics: ");
-        label1.setBounds(180, 100, 100, 30);
+        label1 = new JLabel("YOUR STATISTICS: ");
+        label1.setBounds(170, 95, 400, 30);
+        label1.setForeground(Color.GREEN);
+        label1.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        label2 = new JLabel("Hero: " + hero);
-        label2.setBounds(180, 130, 100, 30);
+        label2 = new JLabel("Hero: ................... " + hero);
+        label2.setBounds(110, 130, 400, 30);
+        label2.setForeground(Color.GREEN);
+        label2.setFont(new Font("Courier", Font.PLAIN, 13));
 
         final String playerType;
-        label3 = new JLabel("Hero: " + (playerType = player.getHeroStatistics().getPlayerType()));
-        label3.setBounds(180, 150, 100, 30);
+        label3 = new JLabel("Hero: ................... " + (playerType = player.getHeroStatistics().getPlayerType()));
+        label3.setBounds(110, 150, 400, 30);
+        label3.setForeground(Color.GREEN);
+        label3.setFont(new Font("Courier", Font.PLAIN, 13));
 
         int lvl;
-        label4 = new JLabel("Lvl: " + (lvl = player.getHeroStatistics().getLvl()));
-        label4.setBounds(180, 170, 100, 30);
+        label4 = new JLabel("Lvl: .................... " + (lvl = player.getHeroStatistics().getLvl()));
+        label4.setBounds(110, 170, 400, 30);
+        label4.setForeground(Color.GREEN);
+        label4.setFont(new Font("Courier", Font.PLAIN, 13));
 
         int attack;
-        label5 = new JLabel("Attack: " + (attack = player.getHeroStatistics().getAttack()));
-        label5.setBounds(180, 190, 100, 30);
+        label5 = new JLabel("Attack: ................. " + (attack = player.getHeroStatistics().getAttack()));
+        label5.setBounds(110, 190, 400, 30);
+        label5.setForeground(Color.GREEN);
+        label5.setFont(new Font("Courier", Font.PLAIN, 13));
 
         int protection;
-        label6 = new JLabel("Protection: " + (protection = player.getHeroStatistics().getProtection()));
-        label6.setBounds(180, 210, 100, 30);
+        label6 = new JLabel("Protection: ............. " + (protection = player.getHeroStatistics().getProtection()));
+        label6.setBounds(110, 210, 400, 30);
+        label6.setForeground(Color.GREEN);
+        label6.setFont(new Font("Courier", Font.PLAIN, 13));
 
         int hitp;
-        label7 = new JLabel("Hit Points: " + (hitp = player.getHeroStatistics().getHitp()));
-        label7.setBounds(180, 230, 100, 30);
+        label7 = new JLabel("Hit Points: ............. " + (hitp = player.getHeroStatistics().getHitp()));
+        label7.setBounds(110, 230, 400, 30);
+        label7.setForeground(Color.GREEN);
+        label7.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        label8 = new JLabel("Artifact: " + (artif = player.getArt().getArtType()));
-        label8.setBounds(180, 250, 100, 30);
+        label8 = new JLabel("Artifact: ............... " + (artif = player.getArt().getArtType()));
+        label8.setBounds(110, 250, 400, 30);
+        label8.setForeground(Color.GREEN);
+        label8.setFont(new Font("Courier", Font.PLAIN, 13));
 
         enterButton.setBounds(180, 300, 100, 40);
 
@@ -388,6 +408,8 @@ public class GUI extends JFrame {
         heroStatisticsFrame.add(enterButton);
 
         heroStatisticsFrame.setSize(500, 500);
+        heroStatisticsFrame.setBackground(Color.BLACK);
+        heroStatisticsFrame.getContentPane().setBackground(Color.BLACK);
         heroStatisticsFrame.setLocationRelativeTo(null);
         heroStatisticsFrame.setLayout(null);
         heroStatisticsFrame.setVisible(true);
