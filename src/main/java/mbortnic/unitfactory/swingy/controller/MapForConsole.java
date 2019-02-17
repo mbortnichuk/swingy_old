@@ -214,7 +214,7 @@ public class MapForConsole {
 
         System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + " | " + "Attack: " + player.getHeroStatistics().getAttack() + " | " +
                             "Protection: "+ player.getHeroStatistics().getProtection() + " | " + "Hit Points: " + player.getHeroStatistics().getHitp() + " | " +
-                            "Exp: " + player.getHeroStatistics().getExp() + "\n\n");
+                            "Exp: " + player.getHeroStatistics().getExp() + "Artif: " + player.getArt().getArtType() + "\n\n");
 
         for (int y = 0; y < ymap; y++) {
             for (int x = 0; x < xmap; x++) {

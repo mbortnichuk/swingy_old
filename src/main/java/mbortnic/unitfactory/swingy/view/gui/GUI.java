@@ -8,6 +8,7 @@ import oracle.jvm.hotspot.jfr.JFR;
 
 import javax.swing.*;
 import javax.swing.border.Border;
+import javax.swing.border.EtchedBorder;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import java.awt.*;
@@ -106,6 +107,7 @@ public class GUI extends JFrame {
         playerCreationFrame.setLayout(null);
         playerCreationFrame.setVisible(true);
         playerCreationFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        playerCreationFrame.setResizable(false);
 
         backButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -164,6 +166,7 @@ public class GUI extends JFrame {
         swingyFrame.setLayout(null);
         swingyFrame.setVisible(true);
         swingyFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        swingyFrame.setResizable(false);
 
         createPlayerButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -233,6 +236,7 @@ public class GUI extends JFrame {
         createHeroFrame.setLayout(null);
         createHeroFrame.setVisible(true);
         createHeroFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        createHeroFrame.setResizable(false);
 
         enterButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -339,6 +343,7 @@ public class GUI extends JFrame {
         selectHeroFrame.setLayout(null);
         selectHeroFrame.setVisible(true);
         selectHeroFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        selectHeroFrame.setResizable(false);
 
     }
 
@@ -424,6 +429,7 @@ public class GUI extends JFrame {
         heroStatisticsFrame.setLayout(null);
         heroStatisticsFrame.setVisible(true);
         heroStatisticsFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        heroStatisticsFrame.setResizable(false);
 
 
 //        heroData = hero.getHeroStats().getHeroType() + " " +
@@ -455,38 +461,46 @@ public class GUI extends JFrame {
         JButton westButton = new JButton("West");
         JButton eastButton = new JButton("East");
 
-        JLabel swingy = new JLabel("Let's play!");
+        JLabel playground = new JLabel(" PLAYGROUND");
 
         guiMap = new MapForGUI(player, gameFrame);
         textArea = guiMap.showGamefield();
 
 //        swingy.setBounds();
 
-        textArea.setBounds(50, 100, 757, 500);
+        playground.setBounds(350, 40, 145, 30);
+        playground.setForeground(Color.GREEN);
+        playground.setBackground(Color.BLACK);
+        playground.setOpaque(true);
+        playground.setFont(new Font("Courier", Font.PLAIN, 20));
+        Border labelBorder = BorderFactory.createLineBorder(Color.GREEN, 1);
+        playground.setBorder(labelBorder);
+
+        textArea.setBounds(50, 100, 757, 615);
         textArea.setForeground(Color.GREEN);
         textArea.setBackground(Color.BLACK);
-        Border border = BorderFactory.createLineBorder(Color.GREEN, 1);
-        textArea.setBorder(border);
+        Border border1 = BorderFactory.createLineBorder(Color.GREEN, 1);
+        textArea.setBorder(border1);
 
-        northButton.setBounds(140, 660, 100, 40);
+        northButton.setBounds(140, 760, 100, 40);
         northButton.setBackground(Color.GREEN);
         northButton.setOpaque(true);
         northButton.setBorderPainted(false);
         northButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        southButton.setBounds(280, 660, 100, 40);
+        southButton.setBounds(280, 760, 100, 40);
         southButton.setBackground(Color.GREEN);
         southButton.setOpaque(true);
         southButton.setBorderPainted(false);
         southButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        westButton.setBounds(440, 660, 100, 40);
+        westButton.setBounds(440, 760, 100, 40);
         westButton.setBackground(Color.GREEN);
         westButton.setOpaque(true);
         westButton.setBorderPainted(false);
         westButton.setFont(new Font("Courier", Font.PLAIN, 13));
 
-        eastButton.setBounds(590, 660, 100, 40);
+        eastButton.setBounds(590, 760, 100, 40);
         eastButton.setBackground(Color.GREEN);
         eastButton.setOpaque(true);
         eastButton.setBorderPainted(false);
@@ -514,6 +528,7 @@ public class GUI extends JFrame {
             }
         });
 
+        gameFrame.add(playground);
         gameFrame.add(textArea);
         gameFrame.add(northButton);
         gameFrame.add(southButton);
@@ -522,11 +537,12 @@ public class GUI extends JFrame {
         gameFrame.setBackground(Color.BLACK);
         gameFrame.getContentPane().setBackground(Color.BLACK);
 
-        gameFrame.setSize(857, 807);
+        gameFrame.setSize(857, 1007);
         gameFrame.setLocationRelativeTo(null);
         gameFrame.setLayout(null);
         gameFrame.setVisible(true);
         gameFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameFrame.setResizable(false);
 
     }
 
@@ -560,6 +576,7 @@ public class GUI extends JFrame {
         gameOverFrame.setLayout(null);
         gameOverFrame.setVisible(true);
         gameOverFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        gameOverFrame.setResizable(false);
     }
 
 }

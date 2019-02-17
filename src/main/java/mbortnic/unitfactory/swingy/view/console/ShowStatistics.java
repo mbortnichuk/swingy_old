@@ -12,19 +12,19 @@ public class ShowStatistics {
 
     public static int showInfo(long ch, String hero, Player player) {
         char eol = '\n';
-        System.out.println("Welcome to SWINGY!\n\n" + player + ", your statistics: ");
+        System.out.println("Welcome to SWINGY!\n\n" + hero + ", your statistics: ");
 
         if (ch == 1) {
             System.out.println("Your choice is HUMAN: " + eol);
             System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + eol + "Attack: " + player.getHeroStatistics().getAttack() + eol +
                     "Protection: " + player.getHeroStatistics().getProtection() + eol + "Exp: " + player.getHeroStatistics().getExp() + eol +
-                    "Hit Points: " + player.getHeroStatistics().getHitp() + eol + eol);
+                    "Hit Points: " + player.getHeroStatistics().getHitp() + eol + "Artif: " + player.getArt().getArtType() + eol + eol);
             chooseStartExit();
         } else if (ch == 2) {
             System.out.println("Your choice is UNDEAD: " + eol);
             System.out.println("Lvl: " + player.getHeroStatistics().getLvl() + eol + "Attack: " + player.getHeroStatistics().getAttack() + eol +
                     "Protection: " + player.getHeroStatistics().getProtection() + eol + "Exp: " + player.getHeroStatistics().getExp() + eol +
-                    "Hit Points: " + player.getHeroStatistics().getHitp() + eol + eol);
+                    "Hit Points: " + player.getHeroStatistics().getHitp() + eol + "Artif: " + player.getArt().getArtType() + eol + eol);
             chooseStartExit();
         }
         int check = 0;

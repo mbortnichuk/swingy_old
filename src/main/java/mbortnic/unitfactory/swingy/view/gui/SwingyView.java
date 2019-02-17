@@ -59,7 +59,7 @@ public class SwingyView {
             newPlayer = Heros.newHero(type, player, heroStatistics, h);
             statistics = type + " " + player + " " + lvl + " " + attack + " " + protection + " " + hitp + " " + exp + " " + art;
         }
-        WriteToFile.write(statistics);
+//        WriteToFile.write(statistics);
         return newPlayer;
     }
 

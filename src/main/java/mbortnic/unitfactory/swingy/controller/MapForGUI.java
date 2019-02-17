@@ -179,27 +179,33 @@ public class MapForGUI extends JFrame {
             }
         }
 
-        textArea.append("Lvl: ................ " + String.valueOf(player.getHeroStatistics().getLvl()) + "\n" +
-                        "Attack: .......... " + player.getHeroStatistics().getAttack() + "\n" +
-                        "Protection: .... " + player.getHeroStatistics().getProtection() + "\n" +
-                        "Hit points: .... " + String.valueOf(player.getHeroStatistics().getHitp()) + "\n" +
-                        "Exp: .............. " + String.valueOf(player.getHeroStatistics().getExp()) + "\n" +
-                        "Artif: ............. " + String.valueOf(player.getArt().getArtType()) + "\n\n");
+        textArea.append("Race: ............... " + player.getHeroStatistics().getPlayerType() + "\n" +
+                        "Name: ............. " + player.getNewPlayer() + "\n" +
+                        "Lvl: .................. " + String.valueOf(player.getHeroStatistics().getLvl()) + "\n" +
+                        "Attack: ............ " + player.getHeroStatistics().getAttack() + "\n" +
+                        "Protection: ...... " + player.getHeroStatistics().getProtection() + "\n" +
+                        "Hit points: ...... " + String.valueOf(player.getHeroStatistics().getHitp()) + "\n" +
+                        "Exp: ................ " + String.valueOf(player.getHeroStatistics().getExp()) + "\n" +
+                        "Artif: ............... " + String.valueOf(player.getArt().getArtType()).toUpperCase() + "\n\n");
 
         for (int y = 0; y < yCoordinate; y++) {
             for (int x = 0; x < xCoordinate; x++) {
                 switch (map[y][x]) {
                     case 0:
-                        textArea.append("|    |");
+                        String b = "|    |";
+                        textArea.append(b);
                         break ;
                     case 1:
-                        textArea.append("| o |");
+                        String o = "| o |";
+                        textArea.append(o);
                         break ;
                     case 2:
-                        textArea.append("| d |");
+                        String d = "| d |";
+                        textArea.append(d);
                         break ;
                     default:
-                        textArea.append("| P |");
+                        String p = "| P |";
+                        textArea.append(p);
                         break ;
                 }
             }
@@ -315,7 +321,7 @@ public class MapForGUI extends JFrame {
         return victory;
     }
 
-    public boolean enemyCollision(int heroX, int heroY, int enemyX, int enemyY) {
+    public boolean enemyCollision(int heroY, int heroX, int enemyX, int enemyY) {
         if ((heroX == enemyX) && (heroY == enemyY)) {
             enemy = getEnemyCollision();
             int buttonForDialog = JOptionPane.YES_NO_OPTION;
