@@ -23,7 +23,7 @@ or start your game via your IDE.
 
 
 ## Screenshots
-`Main Frame`
+- Main Frame
 ![foo](https://github.com/mbortnichuk/swingy/blob/master/pictures/mainFrame.png "MainFrame")
 `Create Hero Frame`
 ![foo](https://github.com/mbortnichuk/swingy/blob/master/pictures/createHero.png "CreateHeroFrame")
