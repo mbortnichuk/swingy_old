@@ -8,6 +8,8 @@ Aim of this project is to implement a text-based RPG based on the gameplay and c
 ```
 git clone https://github.com/mbortnichuk/swingy.git
 cd swingy
+mvn clean package
+java -jar swingy.jar console/gui
 
 ```
 
