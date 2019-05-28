@@ -17,7 +17,7 @@ cd swingy
 Run game using your terminal:
 ```
 mvn clean package
-java -jar swingy.jar console/gui
+java -jar swingy.jar [console/gui]
 ```
 or start your game via your IDE.
 
